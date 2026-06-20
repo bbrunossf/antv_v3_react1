@@ -94,6 +94,29 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
       },
     },
     {
+        selector: 'node[tipo="projeto"]',
+        style: {
+          shape: 'round-rectangle',
+          'background-color': '#FF6B35'
+        }
+      },
+
+      {
+        selector: 'node[tipo="ferramenta"]',
+        style: {
+          shape: 'ellipse',
+          'background-color': '#00D9FF'
+        }
+      },
+
+      {
+        selector: 'node[tipo="conhecimento"]',
+        style: {
+          shape: 'diamond',
+          'background-color': '#9B59B6'
+        }
+      },
+    {
       selector: 'node:selected',
       style: {
         'border-color': '#FFD700',
@@ -160,6 +183,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
       directed: false,
       animate: true,
       animationDuration: 500,
+      nodeRepulsion: 400000,
       avoidOverlap: true,
       nodeSpacing: 50,
       componentSpacing: 100,
@@ -187,7 +211,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
         stylesheet={stylesheet}
         cy={handleCyInit}
         userZoomingEnabled={true}
-        wheelSensitivity={0.5}
+        //wheelSensitivity={1}
         minZoom={0.5}
         maxZoom={2.5}
         boxSelectionEnabled={false}

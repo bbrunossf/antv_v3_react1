@@ -4,9 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 export type NodeType = 'projeto' | 'ferramenta' | 'conhecimento';
 export type ComplexityLevel = 'Baixa' | 'Média' | 'Alta';
 
-export interface GraphNode {
+export interface ProjetoNode {
   id: string;
-  tipo: NodeType;
+  tipo: 'projeto';
   nome: string;
   descricao?: string;
   data_inicio?: string;
@@ -14,9 +14,33 @@ export interface GraphNode {
   ferramentas?: string[];
   tarefas?: string[];
   complexidade?: ComplexityLevel;
+  conhecimentos?: string[];
+  resultados?: string[];
   x?: number;
   y?: number;
 }
+
+export interface FerramentaNode {
+  id: string;
+  tipo: 'ferramenta';
+  nome: string;
+  finalidade?: string;
+  contexto?: string;
+  x?: number;
+  y?: number;
+}
+
+export interface ConhecimentoNode {
+  id: string;
+  tipo: 'conhecimento';
+  nome: string;
+  descricao?: string;
+  exemplos_aplicacao?: string[];
+  x?: number;
+  y?: number;
+}
+
+export type GraphNode = ProjetoNode | FerramentaNode | ConhecimentoNode;
 
 export interface GraphEdge {
   id: string;
@@ -29,21 +53,21 @@ interface GraphStore {
   nodes: GraphNode[];
   edges: GraphEdge[];
   selectedNodeId: string | null;
-  
+
   // Node actions
   addNode: (node: Omit<GraphNode, 'id'>) => string;
   updateNode: (id: string, updates: Partial<GraphNode>) => void;
   deleteNode: (id: string) => void;
   selectNode: (id: string | null) => void;
-  
+
   // Edge actions
   addEdge: (source: string, target: string, tipo?: string) => string;
   deleteEdge: (id: string) => void;
-  
+
   // Batch operations
   setNodes: (nodes: GraphNode[]) => void;
   setEdges: (edges: GraphEdge[]) => void;
-  
+
   // Export/Import
   exportData: () => { nodes: GraphNode[]; edges: GraphEdge[] };
   importData: (data: { nodes: GraphNode[]; edges: GraphEdge[] }) => void;

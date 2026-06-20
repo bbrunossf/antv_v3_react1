@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Plus, Link2, Download, Trash2, RotateCcw } from 'lucide-react';
+import { Plus, Link2, Download, Trash2, Wrench } from 'lucide-react';
 import './Header.css';
 
 interface HeaderProps {
@@ -9,6 +9,7 @@ interface HeaderProps {
   onExport: () => void;
   onImport: () => void;
   onClear: () => void;
+  onSyncTools: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -17,6 +18,7 @@ export const Header: React.FC<HeaderProps> = ({
   onExport,
   onImport,
   onClear,
+  onSyncTools,
 }) => {
   return (
     <header className="header">
@@ -57,6 +59,17 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <Link2 size={16} />
             <span className="hidden sm:inline">Relação</span>
+          </Button>
+
+          <Button
+            onClick={onSyncTools}
+            size="sm"
+            variant="outline"
+            className="gap-2"
+            title="Criar nós para todas as ferramentas listadas nos projetos"
+          >
+            <Wrench size={16} />
+            <span className="hidden sm:inline">Ferramentas</span>
           </Button>
 
           <Button
