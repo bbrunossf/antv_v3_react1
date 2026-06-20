@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { v4 as uuidv4 } from 'uuid';
 
-export type NodeType = 'projeto' | 'ferramenta' | 'conhecimento';
+export type NodeType = 'projeto' | 'ferramenta' | 'conhecimento' | 'tag';
 export type ComplexityLevel = 'Baixa' | 'Média' | 'Alta';
 
 export interface ProjetoNode {
@@ -40,7 +40,17 @@ export interface ConhecimentoNode {
   y?: number;
 }
 
-export type GraphNode = ProjetoNode | FerramentaNode | ConhecimentoNode;
+export interface TagNode {
+  id: string;
+  tipo: 'tag';
+  nome: string;
+  peso?: number;
+  descricao?: string;
+  x?: number;
+  y?: number;
+}
+
+export type GraphNode = ProjetoNode | FerramentaNode | ConhecimentoNode | TagNode;
 
 export interface GraphEdge {
   id: string;

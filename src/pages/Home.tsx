@@ -127,7 +127,9 @@ export default function Home() {
   const [isRelationPanelOpen, setIsRelationPanelOpen] = useState(false);
 
   const nodes = useGraphStore((state) => state.nodes);
+  const edges = useGraphStore((state) => state.edges);
   const addNode = useGraphStore((state) => state.addNode);
+  const addEdge = useGraphStore((state) => state.addEdge);
   const exportData = useGraphStore((state) => state.exportData);
   const importData = useGraphStore((state) => state.importData);
   const clearAll = useGraphStore((state) => state.clearAll);
@@ -217,38 +219,77 @@ export default function Home() {
     const projetos = nodes.filter(
       (n): n is import('../hooks/graphStore').ProjetoNode => n.tipo === 'projeto'
     );
-    const ferramentasExistentes = new Set(
-      nodes
-        .filter((n) => n.tipo === 'ferramenta')
-        .map((n) => n.nome.trim().toLowerCase())
-    );
+
+    if (projetos.length === 0) {
+      toast.info('Nenhum nó de projeto encontrado.');
+      return;
+    }
+
+    // ── Etapa 1: Coleta ferramentas únicas ──
+    const ferramentasExistentes = new Map<string, string>(); // nomeLower → id
+    for (const n of nodes) {
+      if (n.tipo === 'ferramenta') {
+        ferramentasExistentes.set(n.nome.trim().toLowerCase(), n.id);
+      }
+    }
 
     const novasFerramentas = new Set<string>();
 
     for (const projeto of projetos) {
       for (const nomeBruto of projeto.ferramentas ?? []) {
         const nome = nomeBruto.trim();
-        if (nome && !ferramentasExistentes.has(nome.toLowerCase())) {
+        if (!nome) continue;
+        const key = nome.toLowerCase();
+        if (!ferramentasExistentes.has(key) && !novasFerramentas.has(nome)) {
           novasFerramentas.add(nome);
-          ferramentasExistentes.add(nome.toLowerCase()); // evita duplicadas na mesma batelada
         }
       }
     }
 
-    if (novasFerramentas.size === 0) {
-      toast.info('Nenhuma ferramenta nova encontrada. Todas já possuem nós.');
-      return;
-    }
-
+    // ── Etapa 2: Cria nós de ferramenta faltantes ──
+    let criados = 0;
     for (const nome of novasFerramentas) {
-      addNode({
-        tipo: 'ferramenta',
-        nome,
-      } as any);
+      const id = addNode({ tipo: 'ferramenta', nome } as any);
+      ferramentasExistentes.set(nome.toLowerCase(), id);
+      criados++;
     }
 
-    toast.success(`${novasFerramentas.size} nó(s) de ferramenta criado(s).`);
-  }, [nodes, addNode]);
+    // ── Etapa 3: Cria arestas projeto ↔ ferramenta ──
+    const arestasExistentes = new Set<string>();
+    for (const edge of edges) {
+      // Chave composta para detectar duplicatas
+      arestasExistentes.add(`${edge.source}||${edge.target}`);
+    }
+
+    let arestasCriadas = 0;
+    for (const projeto of projetos) {
+      for (const nomeBruto of projeto.ferramentas ?? []) {
+        const nome = nomeBruto.trim();
+        if (!nome) continue;
+        const ferramentaId = ferramentasExistentes.get(nome.toLowerCase());
+        if (!ferramentaId) continue;
+
+        const chave = `${projeto.id}||${ferramentaId}`;
+        if (!arestasExistentes.has(chave)) {
+          addEdge(projeto.id, ferramentaId, 'usa');
+          arestasExistentes.add(chave);
+          arestasCriadas++;
+        }
+      }
+    }
+
+    // ── Resultado ──
+    const partes: string[] = [];
+    if (criados > 0) partes.push(`${criados} nó(s) de ferramenta`);
+    if (arestasCriadas > 0) partes.push(`${arestasCriadas} aresta(s)`);
+
+    if (partes.length === 0) {
+      toast.info('Tudo já está sincronizado — nenhuma novidade.');
+    } else {
+      toast.success(`Sincronizado: ${partes.join(' e ')} criado(s).`);
+    }
+  }, [nodes, edges, addNode, addEdge]);
+
 
   return (
     <div className="home-container">
