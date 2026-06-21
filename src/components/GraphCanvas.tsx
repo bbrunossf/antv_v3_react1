@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
-import { useGraphStore, NodeType } from '../hooks/graphStore';
+import cytoscape from 'cytoscape';
+import cola from 'cytoscape-cola';
+import { useGraphStore, NodeType, ProjetoNode } from '../hooks/graphStore';
 import './GraphCanvas.css';
+
+cytoscape.use(cola);
 
 const getNodeColor = (tipo: NodeType) => {
   switch (tipo) {
@@ -9,8 +13,8 @@ const getNodeColor = (tipo: NodeType) => {
       return '#FF6B35';
     case 'ferramenta':
       return '#00D9FF';
-    case 'conhecimento':
-      return '#9B59B6';
+    case 'tag':
+      return '#10B981';
     default:
       return '#888888';
   }
@@ -56,13 +60,25 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
                ? { x: node.x, y: node.y }
                : undefined,
          })),
-         ...edges.map((edge) => ({
-           data: {
+         ...edges.map((edge) => {
+           const data: any = {
              id: edge.id,
              source: edge.source,
              target: edge.target,
-           },
-         })),
+           };
+           const src = nodes.find((n) => n.id === edge.source);
+           const tgt = nodes.find((n) => n.id === edge.target);
+           if (src?.tipo === 'projeto' && tgt?.tipo === 'tag') {
+             const tagEntry = (src as ProjetoNode).tags?.find(
+               (t) => t.nome.toLowerCase() === tgt.nome.toLowerCase()
+             );
+             if (tagEntry) {
+               data.peso = tagEntry.peso;
+             }
+           }
+           return { data };
+         }),
+
        ],
        [nodes, edges],
      );
@@ -110,10 +126,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
       },
 
       {
-        selector: 'node[tipo="conhecimento"]',
+        selector: 'node[tipo="tag"]',
         style: {
           shape: 'diamond',
-          'background-color': '#9B59B6'
+          'background-color': '#10B981'
         }
       },
     {
@@ -133,7 +149,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
       selector: 'edge',
       style: {
         'line-color': '#D1D5DB',
-        'width': 1.5,
+        'width': (ele: any) => {
+                  const peso = ele.data('peso');
+                  return peso ? Math.max(0.5, peso * 1.5) : 1.5;
+                },
         'opacity': 0.6,
         'curve-style': 'bezier',
       },
@@ -179,15 +198,42 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
 
     // Layout
     const layout = cy.layout({
-      name: 'cose',
-      directed: false,
+      // name: 'cose',
+      // directed: false,
+      // animate: true,
+      // animationDuration: 500,
+      // nodeRepulsion: 400000,
+      // avoidOverlap: true,
+      // nodeSpacing: 50,
+      // componentSpacing: 100,
+      name: 'cola',
       animate: true,
-      animationDuration: 500,
-      nodeRepulsion: 400000,
-      avoidOverlap: true,
-      nodeSpacing: 50,
-      componentSpacing: 100,
+      refresh: 1,
+      maxSimulationTime: 4000,
+      ungrabifyWhileSimulating: false, // so you can't drag nodes during layout
+      fit: true, // on every layout reposition of nodes, fit the viewport
+      padding: 30, // padding around the simulation
+      boundingBox: undefined, // constrain layout bounds; { x1, y1, x2, y2 } or { x1, y1, w, h }
+      nodeDimensionsIncludeLabels: false, // whether labels should be included in determining the space used by a node
+
+      // positioning options
+      randomize: false, // use random node positions at beginning of layout
+      avoidOverlap: true, // if true, prevents overlap of node bounding boxes
+      handleDisconnected: true, // if true, avoids disconnected components from overlapping
+      convergenceThreshold: 0.01, // when the alpha value (system energy) falls below this value, the layout stops
+      flow: undefined, // use DAG/tree flow layout if specified, e.g. { axis: 'y', minSeparation: 30 }
+      alignment: undefined, // relative alignment constraints on nodes, e.g. {vertical: [[{node: node1, offset: 0}, {node: node2, offset: 5}]], horizontal: [[{node: node3}, {node: node4}], [{node: node5}, {node: node6}]]}
+      gapInequalities: undefined, // list of inequality constraints for the gap between the nodes, e.g. [{"axis":"y", "left":node1, "right":node2, "gap":25}]
+      centerGraph: true, // adjusts the node positions initially to center the graph (pass false if you want to start the layout from the current position)
     });
+
+    layout.on('layoutstop', () => {
+          cy.nodes().forEach((node: any) => {
+            const pos = node.position();
+            updateNodeRef.current(node.id(), { x: pos.x, y: pos.y });
+          });
+        });
+
     layout.run();
   }, []);
 
@@ -203,9 +249,55 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
     }
   }, [selectedNodeId]);
 
+  // Reexecuta o layout cola quando novos nós são adicionados
+  const prevNodeCountRef = useRef(nodes.length);
+
+  useEffect(() => {
+    if (!cyRef.current) return;
+
+    const prev = prevNodeCountRef.current;
+    prevNodeCountRef.current = nodes.length;
+
+    // Ignora montagem inicial (prev=0) e remoções
+    if (prev === 0 || nodes.length <= prev) return;
+
+    // Timeout para o cytoscape processar os novos elementos
+    const timer = setTimeout(() => {
+      if (!cyRef.current) return;
+
+      const layout = cyRef.current.layout({
+        name: 'cola',
+        animate: true,
+        refresh: 1,
+        maxSimulationTime: 4000,
+        ungrabifyWhileSimulating: false,
+        fit: true,
+        padding: 30,
+        randomize: false,            // usa posições atuais como ponto de partida
+        avoidOverlap: true,
+        handleDisconnected: true,
+        convergenceThreshold: 0.01,
+        centerGraph: false,          // não centraliza — preserva o arranjo existente
+      });
+
+      layout.on('layoutstop', () => {
+        cyRef.current.nodes().forEach((node: any) => {
+          const pos = node.position();
+          updateNodeRef.current(node.id(), { x: pos.x, y: pos.y });
+        });
+      });
+
+      layout.run();
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [nodes.length]);
+
+
   return (
     <div className="graph-canvas">
       <CytoscapeComponent
+        cytoscape={cytoscape}
         elements={elements}
         style={{ width: '100%', height: '100%' }}
         stylesheet={stylesheet}

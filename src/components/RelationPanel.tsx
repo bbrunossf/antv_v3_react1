@@ -19,7 +19,6 @@ export const RelationPanel: React.FC<RelationPanelProps> = ({ isOpen, onClose })
 
   const [sourceId, setSourceId] = useState('');
   const [targetId, setTargetId] = useState('');
-  const [relationType, setRelationType] = useState('relacionado');
 
   const handleAddRelation = () => {
     if (!sourceId || !targetId) {
@@ -32,10 +31,9 @@ export const RelationPanel: React.FC<RelationPanelProps> = ({ isOpen, onClose })
       return;
     }
 
-    addEdge(sourceId, targetId, relationType);
+    addEdge(sourceId, targetId);
     setSourceId('');
     setTargetId('');
-    setRelationType('relacionado');
   };
 
   if (!isOpen) return null;
@@ -88,22 +86,7 @@ export const RelationPanel: React.FC<RelationPanelProps> = ({ isOpen, onClose })
             </Select>
           </div>
 
-          {/* Relation Type */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium">Tipo de Relação</label>
-            <Select value={relationType} onValueChange={setRelationType}>
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="relacionado">Relacionado</SelectItem>
-                <SelectItem value="usa">Usa</SelectItem>
-                <SelectItem value="requer">Requer</SelectItem>
-                <SelectItem value="precede">Precede</SelectItem>
-                <SelectItem value="sucede">Sucede</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+
 
           {/* Action Buttons */}
           <div className="flex gap-2 pt-4">

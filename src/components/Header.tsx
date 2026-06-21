@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Plus, Link2, Download, Trash2, Wrench } from 'lucide-react';
+import { Plus, Link2, Download, Trash2, Wrench, Tag } from 'lucide-react';
 import './Header.css';
 
 interface HeaderProps {
@@ -10,6 +10,7 @@ interface HeaderProps {
   onImport: () => void;
   onClear: () => void;
   onSyncTools: () => void;
+  onSyncTags: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -19,6 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
   onImport,
   onClear,
   onSyncTools,
+  onSyncTags,
 }) => {
   return (
     <header className="header">
@@ -71,6 +73,18 @@ export const Header: React.FC<HeaderProps> = ({
             <Wrench size={16} />
             <span className="hidden sm:inline">Ferramentas</span>
           </Button>
+
+          <Button
+            onClick={onSyncTags}
+            size="sm"
+            variant="outline"
+            className="gap-2"
+            title="Criar tags a partir das tarefas, conhecimentos e resultados dos projetos"
+          >
+            <Tag size={16} />
+            <span className="hidden sm:inline">Tags</span>
+          </Button>
+
 
           <Button
             onClick={onExport}

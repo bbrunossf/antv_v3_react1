@@ -25,7 +25,9 @@ const FORM_VAZIO = {
   resultados: [] as string[],
   finalidade: '',
   contexto: '',
-  exemplos_aplicacao: [] as string[],
+  tags: [] as { nome: string; peso: number }[],
+
+  // exemplos_aplicacao: [] as string[],
 };
 
 type FormData = typeof FORM_VAZIO;
@@ -43,6 +45,7 @@ function extrairFormData(node: GraphNode): FormData {
       complexidade: node.complexidade ?? 'Média',
       conhecimentos: node.conhecimentos ?? [],
       resultados: node.resultados ?? [],
+      tags: node.tags ?? [],
     };
   }
   if (node.tipo === 'ferramenta') {
@@ -52,11 +55,9 @@ function extrairFormData(node: GraphNode): FormData {
       contexto: node.contexto ?? '',
     };
   }
-  // conhecimento
+  // tag
   return {
     ...base,
-    descricao: node.descricao ?? '',
-    exemplos_aplicacao: node.exemplos_aplicacao ?? [],
   };
 }
 
@@ -73,7 +74,11 @@ export const NodePanel: React.FC<NodePanelProps> = ({ isOpen, onClose }) => {
   const [nodeType, setNodeType] = useState<NodeType>('projeto');
   const [formData, setFormData] = useState<FormData>(FORM_VAZIO);
 
-  const [listaInput, setListaInput] = useState('');
+  const edges = useGraphStore((s) => s.edges);
+  const deleteEdge = useGraphStore((s) => s.deleteEdge);
+
+  const [listaInputs, setListaInputs] = useState<Record<string, string>>({});
+
 
   // Carrega dados ao selecionar nó
   useEffect(() => {
@@ -110,12 +115,43 @@ export const NodePanel: React.FC<NodePanelProps> = ({ isOpen, onClose }) => {
       nodeData.complexidade = formData.complexidade;
       nodeData.conhecimentos = formData.conhecimentos;
       nodeData.resultados = formData.resultados;
+      nodeData.tags = formData.tags;
+
+      // ── Remove edges e nós tag órfãos ──
+      if (selectedNode && selectedNode.tipo === 'projeto') {
+        const oldNames = (selectedNode.tags ?? []).map((t) => t.nome.toLowerCase());
+        const newNames = (formData.tags ?? []).map((t: { nome: string }) => t.nome.toLowerCase());
+        const removidas = oldNames.filter((n) => !newNames.includes(n));
+
+        for (const nome of removidas) {
+          const tagNode = nodes.find(
+            (n) => n.tipo === 'tag' && n.nome.toLowerCase() === nome
+          );
+          if (!tagNode) continue;
+
+          // Remove a aresta projeto → tag
+          const edge = edges.find(
+            (e) => e.source === selectedNodeId && e.target === tagNode.id
+          );
+          if (edge) deleteEdge(edge.id);
+
+          // Se a tag não tem mais nenhuma aresta, remove o nó
+          const outras = edges.filter(
+            (e) => e.target === tagNode.id && e.source !== selectedNodeId
+          );
+          if (outras.length === 0) {
+            deleteNode(tagNode.id);
+          }
+        }
+      }
+
+
+
     } else if (nodeType === 'ferramenta') {
       nodeData.finalidade = formData.finalidade;
       nodeData.contexto = formData.contexto;
     } else {
-      nodeData.descricao = formData.descricao;
-      nodeData.exemplos_aplicacao = formData.exemplos_aplicacao;
+      //tag
     }
 
     if (selectedNode) {
@@ -137,14 +173,15 @@ export const NodePanel: React.FC<NodePanelProps> = ({ isOpen, onClose }) => {
 
   // Helpers para listas
   const addToList = (field: keyof FormData) => {
-    const val = listaInput.trim();
+    const val = (listaInputs[field] ?? '').trim();
     if (!val) return;
     setFormData((prev) => ({
       ...prev,
       [field]: [...(prev[field] as string[]), val],
     }));
-    setListaInput('');
+    setListaInputs((prev) => ({ ...prev, [field]: '' }));
   };
+
 
   const removeFromList = (field: keyof FormData, index: number) => {
     setFormData((prev) => ({
@@ -160,8 +197,10 @@ export const NodePanel: React.FC<NodePanelProps> = ({ isOpen, onClose }) => {
       <div className="flex gap-2">
         <Input
           placeholder={placeholder}
-          value={listaInput}
-          onChange={(e) => setListaInput(e.target.value)}
+          value={listaInputs[field] ?? ''}
+          onChange={(e) =>
+            setListaInputs((prev) => ({ ...prev, [field]: e.target.value }))
+          }
           onKeyDown={(e) => e.key === 'Enter' && addToList(field)}
         />
         <Button onClick={() => addToList(field)} size="sm">
@@ -187,6 +226,7 @@ export const NodePanel: React.FC<NodePanelProps> = ({ isOpen, onClose }) => {
     </div>
   );
 
+
   return (
     <div className="node-panel-overlay" onClick={onClose}>
       <Card className="node-panel" onClick={(e) => e.stopPropagation()}>
@@ -211,7 +251,7 @@ export const NodePanel: React.FC<NodePanelProps> = ({ isOpen, onClose }) => {
               <SelectContent>
                 <SelectItem value="projeto">Projeto</SelectItem>
                 <SelectItem value="ferramenta">Ferramenta</SelectItem>
-                <SelectItem value="conhecimento">Conhecimento</SelectItem>
+                <SelectItem value="tag">Tag</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -293,6 +333,74 @@ export const NodePanel: React.FC<NodePanelProps> = ({ isOpen, onClose }) => {
                 <label className="text-sm font-medium">Resultados</label>
                 {renderLista('resultados', 'Ex: Relatório final, Dashboard')}
               </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Tags</label>
+                <div className="flex gap-2">
+                  <Input
+                    placeholder="Nome da tag"
+                    value={listaInputs['tags_nome'] ?? ''}
+                    onChange={(e) =>
+                      setListaInputs((prev) => ({ ...prev, tags_nome: e.target.value }))
+                    }
+                    className="flex-1"
+                  />
+                  <Input
+                    type="number"
+                    placeholder="Peso"
+                    value={listaInputs['tags_peso'] ?? '1'}
+                    onChange={(e) =>
+                      setListaInputs((prev) => ({ ...prev, tags_peso: e.target.value }))
+                    }
+                    className="w-20"
+                    min={1}
+                  />
+                  <Button
+                    onClick={() => {
+                      const nome = (listaInputs['tags_nome'] ?? '').trim();
+                      const peso = Number(listaInputs['tags_peso'] ?? '1') || 1;
+                      if (!nome) return;
+                      setFormData((prev) => ({
+                        ...prev,
+                        tags: [...prev.tags, { nome, peso }],
+                      }));
+                      setListaInputs((prev) => ({
+                        ...prev,
+                        tags_nome: '',
+                        tags_peso: '1',
+                      }));
+                    }}
+                    size="sm"
+                  >
+                    <Plus size={16} />
+                  </Button>
+                </div>
+                <div className="space-y-1 max-h-32 overflow-y-auto">
+                  {formData.tags.map((tag, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between bg-secondary p-2 rounded-md"
+                    >
+                      <span className="text-sm truncate">{tag.nome}</span>
+                      <span className="text-xs text-muted-foreground mx-2">
+                        peso: {tag.peso}
+                      </span>
+                      <button
+                        onClick={() =>
+                          setFormData((prev) => ({
+                            ...prev,
+                            tags: prev.tags.filter((_, idx) => idx !== i),
+                          }))
+                        }
+                        className="text-destructive hover:text-destructive/80 shrink-0"
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </>
           )}
 
@@ -320,22 +428,11 @@ export const NodePanel: React.FC<NodePanelProps> = ({ isOpen, onClose }) => {
             </>
           )}
 
-          {nodeType === 'conhecimento' && (
+          {nodeType === 'tag' && (
             <>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Descrição</label>
-                <Textarea
-                  placeholder="Descrição do conhecimento"
-                  value={formData.descricao}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, descricao: e.target.value }))}
-                  rows={3}
-                />
-              </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Exemplos de Aplicação</label>
-                {renderLista('exemplos_aplicacao', 'Ex: Classificação de imagens, Previsão de vendas')}
-              </div>
+
+
             </>
           )}
 

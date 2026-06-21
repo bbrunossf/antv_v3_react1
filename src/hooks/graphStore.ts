@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { v4 as uuidv4 } from 'uuid';
 
-export type NodeType = 'projeto' | 'ferramenta' | 'conhecimento' | 'tag';
+export type NodeType = 'projeto' | 'ferramenta' | 'tag';
 export type ComplexityLevel = 'Baixa' | 'Média' | 'Alta';
 
 export interface ProjetoNode {
@@ -16,6 +16,7 @@ export interface ProjetoNode {
   complexidade?: ComplexityLevel;
   conhecimentos?: string[];
   resultados?: string[];
+  tags?: { nome: string; peso: number }[];
   x?: number;
   y?: number;
 }
@@ -30,27 +31,16 @@ export interface FerramentaNode {
   y?: number;
 }
 
-export interface ConhecimentoNode {
-  id: string;
-  tipo: 'conhecimento';
-  nome: string;
-  descricao?: string;
-  exemplos_aplicacao?: string[];
-  x?: number;
-  y?: number;
-}
 
 export interface TagNode {
   id: string;
   tipo: 'tag';
   nome: string;
-  peso?: number;
-  descricao?: string;
   x?: number;
   y?: number;
 }
 
-export type GraphNode = ProjetoNode | FerramentaNode | ConhecimentoNode | TagNode;
+export type GraphNode = ProjetoNode | FerramentaNode | TagNode;
 
 export interface GraphEdge {
   id: string;
@@ -127,6 +117,7 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
     return id;
   },
 
+
   deleteEdge: (id) => {
     set((state) => ({
       edges: state.edges.filter((edge) => edge.id !== id),
@@ -145,7 +136,7 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
     const state = get();
     return {
       nodes: state.nodes,
-      edges: state.edges,
+      edges: [] as GraphEdge[],
     };
   },
 

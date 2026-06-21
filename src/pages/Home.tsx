@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import './Home.css';
 
-const TIPOS_VALIDOS = ['projeto', 'ferramenta', 'conhecimento'] as const;
+const TIPOS_VALIDOS = ['projeto', 'ferramenta', 'tag'] as const;
 const TIPO_PADRAO = 'projeto';
 
 function normalizeImportData(data: any): {
@@ -61,13 +61,11 @@ function normalizeImportData(data: any): {
         x: src.x ?? undefined,
         y: src.y ?? undefined,
       });
-    } else if (src.tipo === 'conhecimento') {
+    } else if (src.tipo === 'tag') {
       nodes.push({
         id: src.id,
-        tipo: 'conhecimento',
+        tipo: 'tag',
         nome: src.nome,
-        descricao: src.descricao ?? '',
-        exemplos_aplicacao: src.exemplos_aplicacao ?? [],
         x: src.x ?? undefined,
         y: src.y ?? undefined,
       });
@@ -85,10 +83,18 @@ function normalizeImportData(data: any): {
         complexidade: src.complexidade ?? undefined,
         conhecimentos: src.conhecimentos ?? [],
         resultados: src.resultados ?? [],
+        tags: Array.isArray(src.tags)
+          ? src.tags.map((t: any) => ({
+              nome: typeof t === 'string' ? t : t.nome ?? '',
+              peso: typeof t === 'object' ? (t.peso ?? 1) : 1,
+            }))
+          : [],
+
         x: src.x ?? undefined,
         y: src.y ?? undefined,
       });
     }
+
 
   }
 
@@ -114,6 +120,7 @@ function normalizeImportData(data: any): {
       source: src.source,
       target: src.target,
       tipo: src.tipo ?? 'relacionado',
+      peso: src.peso ?? undefined,
     });
   }
 
@@ -271,7 +278,7 @@ export default function Home() {
 
         const chave = `${projeto.id}||${ferramentaId}`;
         if (!arestasExistentes.has(chave)) {
-          addEdge(projeto.id, ferramentaId, 'usa');
+          addEdge(projeto.id, ferramentaId);
           arestasExistentes.add(chave);
           arestasCriadas++;
         }
@@ -290,6 +297,75 @@ export default function Home() {
     }
   }, [nodes, edges, addNode, addEdge]);
 
+  const handleSyncTags = useCallback(() => {
+    const projetos = nodes.filter(
+      (n): n is import('../hooks/graphStore').ProjetoNode => n.tipo === 'projeto'
+    );
+
+    if (projetos.length === 0) {
+      toast.info('Nenhum nó de projeto encontrado.');
+      return;
+    }
+
+    const tagsExistentes = new Map<string, string>();
+    for (const n of nodes) {
+      if (n.tipo === 'tag') {
+        tagsExistentes.set(n.nome.trim().toLowerCase(), n.id);
+      }
+    }
+
+    // Cria nós tag faltantes
+    const novasTags = new Map<string, string>(); // nome → id
+    for (const projeto of projetos) {
+      for (const tag of projeto.tags ?? []) {
+        const nome = tag.nome.trim();
+        if (!nome) continue;
+        const key = nome.toLowerCase();
+        if (!tagsExistentes.has(key) && !novasTags.has(key)) {
+          const id = addNode({ tipo: 'tag', nome } as any);
+          tagsExistentes.set(key, id);
+          novasTags.set(key, id);
+        }
+      }
+    }
+
+    // Cria arestas projeto ↔ tag
+    const arestasExistentes = new Set<string>();
+    for (const edge of edges) {
+      arestasExistentes.add(`${edge.source}||${edge.target}`);
+    }
+
+    let arestasCriadas = 0;
+    for (const projeto of projetos) {
+      for (const tag of projeto.tags ?? []) {
+        const nome = tag.nome.trim();
+        if (!nome) continue;
+        const tagId = tagsExistentes.get(nome.toLowerCase());
+        if (!tagId) continue;
+
+        const chave = `${projeto.id}||${tagId}`;
+        if (!arestasExistentes.has(chave)) {
+          addEdge(projeto.id, tagId);
+          arestasExistentes.add(chave);
+          arestasCriadas++;
+        }
+      }
+    }
+
+    const partes: string[] = [];
+    if (novasTags.size > 0) partes.push(`${novasTags.size} tag(s)`);
+    if (arestasCriadas > 0) partes.push(`${arestasCriadas} aresta(s)`);
+
+    if (partes.length === 0) {
+      toast.info('Todas as tags já estão sincronizadas.');
+    } else {
+      toast.success(`Sincronizado: ${partes.join(' e ')} criado(s).`);
+    }
+  }, [nodes, edges, addNode, addEdge]);
+
+
+
+
 
   return (
     <div className="home-container">
@@ -300,6 +376,7 @@ export default function Home() {
         onImport={handleImport}
         onClear={handleClear}
         onSyncTools={handleSyncTools}
+        onSyncTags={handleSyncTags}
       />
 
       <div className="graph-container">
