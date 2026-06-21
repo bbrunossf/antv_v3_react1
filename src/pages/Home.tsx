@@ -7,6 +7,7 @@ import { RelationPanel } from '@/components/RelationPanel';
 import { Header } from '@/components/Header';
 import { toast } from 'sonner';
 import { v4 as uuidv4 } from 'uuid';
+import { NodeCounter } from '@/components/NodeCounter';
 
 import './Home.css';
 
@@ -140,6 +141,10 @@ export default function Home() {
   const exportData = useGraphStore((state) => state.exportData);
   const importData = useGraphStore((state) => state.importData);
   const clearAll = useGraphStore((state) => state.clearAll);
+  const triggerLayout = useGraphStore((state) => state.triggerLayout);
+  const [searchTerm, setSearchTerm] = useState('');
+
+
 
   const handleNewNode = useCallback(() => {
     useGraphStore.setState({ selectedNodeId: null });
@@ -364,7 +369,14 @@ export default function Home() {
   }, [nodes, edges, addNode, addEdge]);
 
 
+  const handleShuffle = useCallback(() => {
+    triggerLayout();
+    toast('Nós reorganizados! 🔀');
+  }, [triggerLayout]);
 
+  const handleSearch = useCallback((term: string) => {
+     setSearchTerm(term);
+   }, []);
 
 
   return (
@@ -377,10 +389,14 @@ export default function Home() {
         onClear={handleClear}
         onSyncTools={handleSyncTools}
         onSyncTags={handleSyncTags}
+        onShuffle={handleShuffle}
+        onSearch={handleSearch}
       />
 
       <div className="graph-container">
+        <NodeCounter />
         <GraphCanvas
+          searchTerm={searchTerm}
           onNodeSelect={(nodeId) => {
             if (nodeId) {
               setIsNodePanelOpen(true);

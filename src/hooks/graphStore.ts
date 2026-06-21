@@ -53,6 +53,8 @@ interface GraphStore {
   nodes: GraphNode[];
   edges: GraphEdge[];
   selectedNodeId: string | null;
+  layoutTrigger: number;
+  triggerLayout: () => void;
 
   // Node actions
   addNode: (node: Omit<GraphNode, 'id'>) => string;
@@ -78,6 +80,7 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
   nodes: [],
   edges: [],
   selectedNodeId: null,
+  layoutTrigger: 0,
 
   addNode: (node) => {
     const id = uuidv4();
@@ -145,6 +148,10 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
       nodes: data.nodes,
       edges: data.edges,
     });
+  },
+
+  triggerLayout: () => {
+    set((state) => ({ layoutTrigger: state.layoutTrigger + 1 }));
   },
 
   clearAll: () => {

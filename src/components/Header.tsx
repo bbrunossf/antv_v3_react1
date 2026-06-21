@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Plus, Link2, Download, Trash2, Wrench, Tag } from 'lucide-react';
+import { Plus, Link2, Download, Trash2, Wrench, Tag, Shuffle, Search, X } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { useState} from 'react';
 import './Header.css';
 
 interface HeaderProps {
@@ -11,6 +13,10 @@ interface HeaderProps {
   onClear: () => void;
   onSyncTools: () => void;
   onSyncTags: () => void;
+  onShuffle: () => void;
+  searchTerm: string;
+  onSearchChange: (value: string) => void;
+  onSearch: (term: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -21,7 +27,10 @@ export const Header: React.FC<HeaderProps> = ({
   onClear,
   onSyncTools,
   onSyncTags,
+  onShuffle,
+  onSearch,
 }) => {
+  const [inputValue, setInputValue] = useState('');
   return (
     <header className="header">
       <div className="header-content">
@@ -39,6 +48,45 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <h1>Tech Project Graph</h1>
         </div>
+
+        <div className="header-search">
+          <div className="flex gap-1">
+            <Input
+              placeholder="Buscar nó..."
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  onSearch(inputValue.trim());
+                }
+              }}
+              className="h-8 w-40 text-xs"
+            />
+            {inputValue && (
+              <Button
+                size="sm"
+                variant="ghost"
+                className="h-8 w-8 p-0"
+                onClick={() => {
+                  setInputValue('');
+                  onSearch('');
+                }}
+              >
+                <X size={14} />
+              </Button>
+            )}
+            <Button
+              size="sm"
+              variant="outline"
+              className="h-8 gap-1"
+              onClick={() => onSearch(inputValue.trim())}
+            >
+              <Search size={14} />
+            </Button>
+          </div>
+        </div>
+
+
 
         {/* Action Buttons */}
         <div className="header-actions">
@@ -84,6 +132,17 @@ export const Header: React.FC<HeaderProps> = ({
             <Tag size={16} />
             <span className="hidden sm:inline">Tags</span>
           </Button>
+
+          <Button
+            onClick={onShuffle}
+            size="sm"
+            variant="ghost"
+            className="gap-2"
+            title="Reorganizar nós aleatoriamente"
+          >
+            <Shuffle size={16} />
+          </Button>
+
 
 
           <Button

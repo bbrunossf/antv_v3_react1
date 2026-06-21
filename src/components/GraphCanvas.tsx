@@ -22,9 +22,10 @@ const getNodeColor = (tipo: NodeType) => {
 
 interface GraphCanvasProps {
   onNodeSelect?: (nodeId: string | null) => void;
+  searchTerm?: string;
 }
 
-export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
+export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTerm }) => {
   const cyRef = useRef<any>(null);
   const initializedRef = useRef(false);
 
@@ -33,6 +34,8 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
   onNodeSelectRef.current = onNodeSelect;
   const selectNodeRef = useRef(useGraphStore.getState().selectNode);
   const updateNodeRef = useRef(useGraphStore.getState().updateNode);
+  const layoutTrigger = useGraphStore((state) => state.layoutTrigger);
+
 
 
   const nodes = useGraphStore((state) => state.nodes);
@@ -157,6 +160,14 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
         'curve-style': 'bezier',
       },
     },
+    {
+      selector: '.faded',
+      style: {
+        'opacity': 0.15,
+        'text-opacity': 0,
+      },
+    },
+
   ];
 
   const handleCyInit = useCallback((cy: any) => {
@@ -165,12 +176,24 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
     cyRef.current = cy;
 
     // Hover effect — alternativa ao seletor inválido :hover
+    // cy.on('mouseover', 'node', (evt: any) => {
+    //   evt.target.style('border-width', 3);
+    // });
+    // cy.on('mouseout', 'node', (evt: any) => {
+    //   evt.target.style('border-width', 2);
+    // });
+
+    // Highlight — conectados em foco, resto esmaecido
     cy.on('mouseover', 'node', (evt: any) => {
-      evt.target.style('border-width', 3);
+      const connected = evt.target.closedNeighborhood();
+      cy.elements().difference(connected).addClass('faded');
+      connected.removeClass('faded');
     });
-    cy.on('mouseout', 'node', (evt: any) => {
-      evt.target.style('border-width', 2);
+
+    cy.on('mouseout', 'node', () => {
+      cy.elements().removeClass('faded');
     });
+
 
 
     // Node click
@@ -217,7 +240,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
       nodeDimensionsIncludeLabels: false, // whether labels should be included in determining the space used by a node
 
       // positioning options
-      randomize: false, // use random node positions at beginning of layout
+      randomize: true, // use random node positions at beginning of layout
       avoidOverlap: true, // if true, prevents overlap of node bounding boxes
       handleDisconnected: true, // if true, avoids disconnected components from overlapping
       convergenceThreshold: 0.01, // when the alpha value (system energy) falls below this value, the layout stops
@@ -248,6 +271,61 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect }) => {
       cyRef.current.getElementById(selectedNodeId).select();
     }
   }, [selectedNodeId]);
+
+
+  // Layout manual (botão "Embaralhar")
+  useEffect(() => {
+    if (!cyRef.current || layoutTrigger === 0) return;
+
+    const timer = setTimeout(() => {
+      if (!cyRef.current) return;
+      const layout = cyRef.current.layout({
+        name: 'cola',
+        animate: true,
+        refresh: 1,
+        maxSimulationTime: 4000,
+        ungrabifyWhileSimulating: false,
+        fit: true,
+        padding: 30,
+        randomize: true,           // posições aleatórias
+        avoidOverlap: true,
+        handleDisconnected: true,
+        convergenceThreshold: 0.01,
+        centerGraph: true,
+      });
+      layout.on('layoutstop', () => {
+        cyRef.current.nodes().forEach((node: any) => {
+          const pos = node.position();
+          updateNodeRef.current(node.id(), { x: pos.x, y: pos.y });
+        });
+      });
+      layout.run();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [layoutTrigger]);
+
+  // Realce de busca
+  useEffect(() => {
+    if (!cyRef.current) return;
+    cyRef.current.elements().removeClass('faded');
+
+    const term = searchTerm?.trim();
+    if (!term) return;
+
+    const lower = term.toLowerCase();
+    const matched = cyRef.current.nodes().filter((n: any) =>
+      n.data('label').toLowerCase().includes(lower)
+    );
+
+    if (matched.length === 0) return;
+
+    cyRef.current.elements().addClass('faded');
+    matched.removeClass('faded');
+    matched.connectedEdges().removeClass('faded');
+    matched.neighborhood().removeClass('faded');
+  }, [searchTerm]);
+
 
   // Reexecuta o layout cola quando novos nós são adicionados
   const prevNodeCountRef = useRef(nodes.length);
