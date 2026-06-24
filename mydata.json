@@ -1,0 +1,877 @@
+{
+  "nodes": [
+  {
+    "tipo": "projeto",
+    "nome": "transcrição de áudios",
+    "descricao": "Ferramenta desenvolvida para transcrever áudios em arquivos de texto simples, adequados para ingestão por modelos de linguagem (LLMs). O projeto foi utilizado como primeiro teste de integração com a API da AssemblyAI, utilizando Python e Flask, com foco em arquitetura modular e uso de blueprints.",
+    "data_inicio": "2024-10-25",
+    "data_fim": "2025-07-17",
+    "ferramentas": [
+        "API AssemblyAI",
+        "Python",
+        "Flask"
+    ],
+    "tarefas": [
+        "Integração com a API da AssemblyAI",
+        "Transcrição de arquivos de áudio para texto",
+        "Geração de arquivos de texto para ingestão por LLMs",
+        "Implementação de arquitetura modular utilizando blueprints do Flask"
+    ],
+    "complexidade": "média",
+    "conhecimentos": [
+        "Uso da API da AssemblyAI",
+        "Blueprints do Flask",
+        "Boas práticas de código modularizado",
+        "Integração de APIs"
+    ],
+    "resultados": [
+        "Desenvolvimento de uma ferramenta funcional para transcrição de áudios em texto",
+        "Produção de textos adequados para ingestão por LLMs",
+        "Validação prática da integração com a API da AssemblyAI",
+        "Não utilização da funcionalidade de identificação de falantes devido à indisponibilidade do recurso em português na época"
+    ],
+    "tags": [
+        {
+            "nome": "APIs",
+            "peso": 10
+        },
+        {
+            "nome": "Python",
+            "peso": 9
+        },
+        {
+            "nome": "Processamento de Texto",
+            "peso": 7
+        }
+    ]
+},
+    {
+      "id": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "tipo": "projeto",
+      "nome": "Aplicação para registro de horas trabalhadas",
+      "descricao": "Aplicação desktop para Windows destinada ao apontamento de horas trabalhadas em projetos. A solução permite que cada funcionário selecione o projeto e a tarefa executada, registrando o tempo dedicado por meio de um temporizador integrado. O objetivo foi aumentar a precisão na distribuição dos custos de mão de obra entre os projetos e viabilizar análises mais confiáveis dos custos das equipes.",
+      "data_inicio": "2025-10-18",
+      "data_fim": "2025-12-15",
+      "ferramentas": [
+        "Python",
+        "Tkinter",
+        "Supabase",
+        "SQL",
+        "MSI Package",
+        "PG8000"
+      ],
+      "tarefas": [
+        "Desenvolvimento da interface desktop para Windows",
+        "Implementação de temporizador para apontamento de atividades",
+        "Integração com banco de dados para consulta de projetos e tarefas",
+        "Criação de banco de dados Supabase na nuvem",
+        "Empacotamento da aplicação em instalador MSI",
+        "Distribuição da aplicação na rede local",
+        "Realização de testes de qualidade para acesso simultâneo de aproximadamente 40 usuários"
+      ],
+      "complexidade": "alta",
+      "conhecimentos": [
+        "Criação e administração de banco de dados Supabase",
+        "Uso da biblioteca PG8000 para conexão com banco de dados",
+        "Empacotamento de aplicações Python em executáveis distribuíveis",
+        "Testes de concorrência e acesso simultâneo",
+        "Desenvolvimento de aplicações desktop com interface gráfica"
+      ],
+      "resultados": [
+        "Aplicação leve e de fácil utilização para apontamento de horas",
+        "Registro estruturado das atividades realizadas pelos funcionários",
+        "Armazenamento centralizado dos apontamentos em banco de dados",
+        "Maior precisão na distribuição dos custos de mão de obra entre projetos",
+        "Disponibilização de dados para análise de custos por projeto e equipe"
+      ],
+      "tags": [
+        {
+          "nome": "Python",
+          "peso": 10
+        },
+        {
+          "nome": "Banco de Dados",
+          "peso": 9
+        },
+        {
+          "nome": "Aplicações Desktop",
+          "peso": 8
+        }
+      ],
+      "x": 225.46397242439528,
+      "y": -402.1203902512908
+    },
+    {
+      "id": "a12efee9-4527-40ab-b280-24411352e22a",
+      "tipo": "projeto",
+      "nome": "Chatbot com Telegram para registros de áudio e texto",
+      "descricao": "Sistema baseado em bot do Telegram para captura e armazenamento de mensagens de texto, áudios e transcrições categorizadas em um banco de dados relacional. O projeto incluiu funcionalidades de busca textual, geração de relatórios em PDF e resumos automáticos utilizando modelos de linguagem, funcionando como uma memória pessoal de mensagens curtas recuperáveis posteriormente.",
+      "data_inicio": "2024-04-22",
+      "data_fim": "2024-11-24",
+      "ferramentas": [
+        "Python",
+        "API Telegram",
+        "LLM",
+        "AssemblyAI",
+        "MariaDB",
+        "SQL",
+        "Raspberry Pi",
+        "Pandas"
+      ],
+      "tarefas": [
+        "Criação do bot no Telegram",
+        "Recebimento de mensagens de texto",
+        "Recebimento e armazenamento de arquivos de áudio",
+        "Transcrição automática de áudios",
+        "Armazenamento de mensagens e transcrições em banco de dados relacional",
+        "Implementação de busca textual",
+        "Geração de relatórios resumo em PDF",
+        "Classificação das mensagens em categorias predefinidas"
+      ],
+      "complexidade": "média",
+      "conhecimentos": [
+        "Uso da API do Telegram",
+        "Exposição de portas para recebimento de dados em servidor hospedado em Raspberry Pi",
+        "Transcrição automática de áudio",
+        "Geração de resumos de texto utilizando API da OpenAI",
+        "Manipulação de bancos de dados relacionais com SQL",
+        "Armazenamento e recuperação de dados estruturados"
+      ],
+      "resultados": [
+        "Ferramenta funcional para armazenamento de mensagens curtas categorizadas",
+        "Armazenamento integrado de texto, áudio e transcrições",
+        "Recuperação de informações por meio de busca textual",
+        "Geração automática de relatórios em PDF",
+        "Facilidade de registro e consulta de informações pessoais"
+      ],
+      "tags": [
+        {
+          "nome": "Chatbot",
+          "peso": 10
+        },
+        {
+          "nome": "Banco de Dados",
+          "peso": 9
+        },
+        {
+          "nome": "LLM",
+          "peso": 8
+        }
+      ],
+      "x": -387.28451091072805,
+      "y": -388.6112152759592
+    },
+    {
+      "id": "2e75b310-e2c0-42ad-938f-a03b9577e080",
+      "tipo": "projeto",
+      "nome": "Chat com documentos PDF",
+      "descricao": "Protótipo de sistema RAG (Retrieval-Augmented Generation) em memória, com interface web para upload de arquivos PDF e interação via chat, permitindo realizar perguntas e recuperar informações contidas nos documentos carregados.",
+      "data_inicio": "2024-01-07",
+      "data_fim": "2024-10-29",
+      "ferramentas": [
+        "Streamlit",
+        "LlamaIndex",
+        "LLM"
+      ],
+      "tarefas": [
+        "Desenvolvimento de interface web para upload de arquivos PDF",
+        "Implementação de área de chat para interação com o modelo de linguagem",
+        "Ingestão de documentos PDF em memória",
+        "Integração entre mecanismo de recuperação de informações e LLM"
+      ],
+      "complexidade": "baixa",
+      "conhecimentos": [
+        "Uso do LlamaIndex",
+        "Integração com modelos de linguagem (LLM)",
+        "Fundamentos de Retrieval-Augmented Generation (RAG)",
+        "Desenvolvimento de interfaces web com Streamlit"
+      ],
+      "resultados": [
+        "Interface web funcional para upload de documentos PDF",
+        "Capacidade de realizar perguntas sobre o conteúdo dos documentos",
+        "Recuperação de informações a partir dos textos ingeridos",
+        "Protótipo RAG operando integralmente em memória"
+      ],
+      "tags": [
+        {
+          "nome": "RAG",
+          "peso": 10
+        },
+        {
+          "nome": "LLM",
+          "peso": 9
+        },
+        {
+          "nome": "Processamento de Documentos",
+          "peso": 8
+        }
+      ],
+      "x": -15.243943006237131,
+      "y": -332.26420430680145
+    },
+    {
+      "id": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "tipo": "projeto",
+      "nome": "consolidação de dados de arquivos Excel",
+      "descricao": "Projeto para consolidar dados de aproximadamente 300 arquivos Excel com estrutura padronizada, permitindo análise conjunta da massa de dados. Incluiu anonimização de dados pessoais por meio de tabela hash, mapeamento de campos e ingestão automatizada dos arquivos.",
+      "data_inicio": "03/04/2023",
+      "data_fim": "30/04/2023",
+      "ferramentas": [
+        "Python",
+        "Pandas",
+        "openpyxl",
+        "hash",
+        "tqdm",
+        "logging"
+      ],
+      "tarefas": [
+        "Criação de tabela hash para remoção de dados pessoais",
+        "Mapeamento dos campos dos arquivos Excel",
+        "Ingestão de múltiplos arquivos Excel",
+        "Registro da execução por meio de arquivos de log"
+      ],
+      "complexidade": "baixa",
+      "conhecimentos": [
+        "Uso de tabelas hash",
+        "Ingestão de múltiplos arquivos em diretório",
+        "Registro de execução utilizando logs",
+        "Manipulação de arquivos Excel com Python"
+      ],
+      "resultados": [
+        "Geração de arquivo Excel consolidado contendo dados de aproximadamente 300 arquivos",
+        "Remoção de dados pessoais dos registros antes da consolidação",
+        "Disponibilização dos dados para análise conjunta"
+      ],
+      "tags": [
+        {
+          "nome": "ETL",
+          "peso": 9
+        },
+        {
+          "nome": "Anonimização de Dados",
+          "peso": 7
+        }
+      ],
+      "x": 33.95392189223468,
+      "y": 250.10871725636605
+    },
+    {
+      "id": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "tipo": "projeto",
+      "nome": "Análise de dados com API do Youtube",
+      "descricao": "Projeto de análise descritiva de dados pessoais de vídeos assistidos no YouTube. Os dados foram coletados e processados utilizando a API do YouTube, Python, Pandas e expressões regulares, com posterior consolidação em dataframe, exportação para Excel e exploração visual dos resultados no Tableau.",
+      "data_inicio": "2023-06-05",
+      "data_fim": "2025-05-12",
+      "ferramentas": [
+        "API do YouTube",
+        "Python",
+        "Pandas",
+        "Regex",
+        "Excel",
+        "Tableau"
+      ],
+      "tarefas": [
+        "Coleta de dados utilizando a API do YouTube",
+        "Manipulação de arquivos JSON",
+        "Limpeza e transformação de dados com regex",
+        "Tratamento de datas utilizando objetos datetime no Pandas",
+        "Consolidação dos dados em dataframe",
+        "Exportação dos dados para Excel",
+        "Análise exploratória com tabelas dinâmicas",
+        "Criação de visualizações no Tableau"
+      ],
+      "complexidade": "baixa",
+      "conhecimentos": [
+        "Regex",
+        "Manipulação de arquivos JSON",
+        "Manipulação de objetos datetime no Pandas",
+        "Análise descritiva de dados",
+        "Tratamento e consolidação de dados"
+      ],
+      "resultados": [
+        "Consolidação dos dados desejados em dataframe",
+        "Exportação dos dados tratados para Excel",
+        "Análise exploratória utilizando tabelas dinâmicas",
+        "Visualização exploratória dos dados no Tableau"
+      ],
+      "tags": [
+        {
+          "nome": "Análise de Dados",
+          "peso": 10
+        },
+        {
+          "nome": "APIs",
+          "peso": 8
+        }
+      ],
+      "x": -192.00572930304975,
+      "y": 80.21176167795154
+    },
+    {
+      "id": "0f690c69-08fc-4005-b482-a7974e4b6ea9",
+      "tipo": "projeto",
+      "nome": "projeto dir",
+      "descricao": "Projeto experimental para analisar a estrutura de bibliotecas Python, extraindo classes, métodos, funções e docstrings para gerar uma documentação resumida da biblioteca.",
+      "data_inicio": "2022-02-05",
+      "data_fim": "2022-02-11",
+      "ferramentas": [
+        "Python",
+        "inspect",
+        "Pandas"
+      ],
+      "tarefas": [
+        "Inspeção de módulos Python",
+        "Extração de classes",
+        "Extração de métodos e funções",
+        "Leitura de docstrings",
+        "Geração de documentação resumida",
+        "Criação de funções e classes auxiliares",
+        "Manipulação de listas e dicionários"
+      ],
+      "complexidade": "Baixa",
+      "conhecimentos": [
+        "Python",
+        "Programação orientada a objetos",
+        "Introspecção em Python",
+        "Estruturas de dados (listas e dicionários)",
+        "Documentação de código (docstrings)"
+      ],
+      "resultados": [
+        "Aprendizado sobre criação de funções com parâmetros",
+        "Descoberta do módulo inspect",
+        "Compreensão de técnicas de introspecção em Python"
+      ],
+      "tags": [
+        {
+          "nome": "Programação Orientada a Objetos",
+          "peso": 8
+        },
+        {
+          "nome": "Estruturas de Dados",
+          "peso": 6
+        }
+      ],
+      "x": 243.10629072060962,
+      "y": 229.3833263731191
+    },
+    {
+      "id": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "ferramenta",
+      "nome": "Python",
+      "finalidade": "Desenvolvimento da biblioteca de análise de estruturas de código.",
+      "contexto": "Linguagem principal utilizada no projeto dir.",
+      "x": 167.99427569695024,
+      "y": 13.38332337311912
+    },
+    {
+      "id": "caef911d-fcb1-40ae-8c69-cdc29bfdee7e",
+      "tipo": "ferramenta",
+      "nome": "inspect",
+      "finalidade": "Realizar introspecção de objetos, módulos, classes e funções Python.",
+      "contexto": "Utilizado e estudado durante o desenvolvimento do projeto dir.",
+      "x": 423.2760586447169,
+      "y": 293.5353122902454
+    },
+    {
+      "id": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "tipo": "projeto",
+      "nome": "Sistema de Download de Músicas e Vídeos para Jellyfin",
+      "descricao": "Sistema para download de vídeos e músicas do YouTube, conversão para formatos MP3 e MP4, armazenamento em Raspberry Pi e integração com Jellyfin para criação automática e gerenciamento de bibliotecas e playlists pessoais.",
+      "data_inicio": "2025-04-25",
+      "data_fim": "2026-06-07",
+      "ferramentas": [
+        "Python",
+        "FastAPI",
+        "Pydantic",
+        "yt-dlp",
+        "google-api",
+        "FFmpeg",
+        "Docker",
+        "Remix",
+        "Jellyfin API"
+      ],
+      "tarefas": [
+        "Desenvolvimento de backend para gerenciamento de downloads",
+        "Exposição de endpoints com FastAPI",
+        "Integração com API do Google",
+        "Integração com API do Jellyfin",
+        "Conversão de arquivos utilizando FFmpeg",
+        "Automação da criação de playlists",
+        "Desenvolvimento de interface web",
+        "Implementação de gerenciador de playlists",
+        "Integração entre frontend e backend",
+        "Containerização da aplicação com Docker"
+      ],
+      "complexidade": "média",
+      "conhecimentos": [
+        "Uso da API do Google",
+        "Definição de tipos com Pydantic",
+        "Exposição de endpoints com FastAPI",
+        "Integração entre frontend e backend"
+      ],
+      "resultados": [
+        "Sistema completo para criação de biblioteca pessoal de áudio e vídeo",
+        "Gerenciamento de bibliotecas e playlists utilizando Jellyfin",
+        "Download automatizado de conteúdo do YouTube",
+        "Conversão automática para formatos MP3 e MP4"
+      ],
+      "tags": [
+        {
+          "nome": "APIs",
+          "peso": 9
+        },
+        {
+          "nome": "Automação",
+          "peso": 8
+        },
+        {
+          "nome": "Desenvolvimento Web",
+          "peso": 8
+        }
+      ],
+      "x": 229.05908252911487,
+      "y": 157.3833253731191
+    },
+    {
+      "id": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "tipo": "projeto",
+      "nome": "Investimentos Financeiros",
+      "descricao": "Aplicação para análise de ativos financeiros da B3 utilizando indicadores técnicos, gráficos e estratégia do tipo trend following. Evoluiu de uma versão em Streamlit para Dash e posteriormente para uma arquitetura baseada em FastAPI, Pydantic e JavaScript, consumindo dados da Brapi e yfinance.",
+      "data_inicio": "2023-12-16",
+      "data_fim": "2026-02-17",
+      "ferramentas": [
+        "Python",
+        "Streamlit",
+        "Dash",
+        "FastAPI",
+        "Pydantic",
+        "JavaScript",
+        "Brapi",
+        "yfinance",
+        "Pandas",
+        "Plotly.js"
+      ],
+      "tarefas": [
+        "Coleta de dados financeiros",
+        "Tratamento de dados",
+        "Desenvolvimento de indicadores técnicos",
+        "Criação de gráficos interativos",
+        "Desenvolvimento de interface web",
+        "Modularização do código",
+        "Integração com APIs de mercado financeiro"
+      ],
+      "complexidade": "média",
+      "conhecimentos": [
+        "FastAPI",
+        "Modularização de código",
+        "Arquitetura de aplicações",
+        "Organização de classes e funções",
+        "Análise de dados financeiros"
+      ],
+      "resultados": [
+        "Desenvolvimento de um sistema de análise de ativos financeiros",
+        "Redução da dependência de bibliotecas complexas",
+        "Melhoria da interpretação e visualização dos dados"
+      ],
+      "tags": [
+        {
+          "nome": "Análise de Dados",
+          "peso": 9
+        },
+        {
+          "nome": "APIs",
+          "peso": 8
+        }
+      ],
+      "x": 23.99427369695023,
+      "y": -33.964741224230615
+    },
+    {
+      "id": "8e719e06-471e-4ba6-b47d-ecd19fd926d3",
+      "tipo": "tag",
+      "nome": "Programação Orientada a Objetos",
+      "x": 381.8195617370302,
+      "y": 367.67778250328155
+    },
+    {
+      "id": "f30ad657-36b1-45fa-be42-efbb4bacdc7a",
+      "tipo": "tag",
+      "nome": "Estruturas de Dados",
+      "x": 309.81956073703014,
+      "y": 408.7421950677533
+    },
+    {
+      "id": "725af57d-b670-4ff1-8717-d6c86a7eaf41",
+      "tipo": "tag",
+      "nome": "APIs",
+      "x": 51.80921946586097,
+      "y": 127.21105409292682
+    },
+    {
+      "id": "23d37e70-5f7f-4e08-b581-a401b6ca2842",
+      "tipo": "tag",
+      "nome": "Automação",
+      "x": 360.88937138035584,
+      "y": 9.215053118671255
+    },
+    {
+      "id": "f37d7658-7640-4e41-9a1b-4f888464b520",
+      "tipo": "tag",
+      "nome": "Desenvolvimento Web",
+      "x": 416.45065526745503,
+      "y": 81.21505411867125
+    },
+    {
+      "id": "5fc31254-74f7-4ead-98db-fb3a812668e6",
+      "tipo": "tag",
+      "nome": "Análise de Dados",
+      "x": -122.27502321310118,
+      "y": -176.3546791071291
+    },
+    {
+      "id": "081a361c-2cdf-431b-a791-d1125e4bb9cc",
+      "tipo": "ferramenta",
+      "nome": "FastAPI",
+      "finalidade": "",
+      "contexto": "",
+      "x": 177.81802050746924,
+      "y": 85.38332437311912
+    },
+    {
+      "id": "3b493003-4f06-44d4-ab49-ced531386fd0",
+      "tipo": "ferramenta",
+      "nome": "Pydantic",
+      "finalidade": "",
+      "contexto": "",
+      "x": 239.99427669695024,
+      "y": 13.38332337311912
+    },
+    {
+      "id": "61d58e94-a375-4f7e-9987-38613f99fd73",
+      "tipo": "ferramenta",
+      "nome": "yt-dlp",
+      "finalidade": "",
+      "contexto": "",
+      "x": -38.046079107765316,
+      "y": 308.6582746601083
+    },
+    {
+      "id": "207884bb-829c-443b-bd77-0cabd5d50459",
+      "tipo": "ferramenta",
+      "nome": "google-api",
+      "finalidade": "",
+      "contexto": "",
+      "x": 340.1317068715909,
+      "y": 81.21505411867125
+    },
+    {
+      "id": "6c60a8b9-8c86-4737-ae5e-ef04351c2c77",
+      "tipo": "ferramenta",
+      "nome": "FFmpeg",
+      "finalidade": "",
+      "contexto": "",
+      "x": 237.81955973703018,
+      "y": 373.3833283731191
+    },
+    {
+      "id": "6e7c0940-3b10-49c1-af2c-2e0b2b012b65",
+      "tipo": "ferramenta",
+      "nome": "Docker",
+      "finalidade": "",
+      "contexto": "",
+      "x": 339.63729292148633,
+      "y": 225.21505611867124
+    },
+    {
+      "id": "aeb8844e-4f28-46f6-b53d-c2aaa92651da",
+      "tipo": "ferramenta",
+      "nome": "Remix",
+      "finalidade": "",
+      "contexto": "",
+      "x": 105.95392289223467,
+      "y": 271.2110560929268
+    },
+    {
+      "id": "4e54dc64-4ba5-443a-92ff-1a3a06de127f",
+      "tipo": "ferramenta",
+      "nome": "Jellyfin API",
+      "finalidade": "",
+      "contexto": "",
+      "x": 393.8203430624073,
+      "y": 153.21505511867124
+    },
+    {
+      "id": "9e24405e-17e6-4b78-a81c-1fa81ec7964a",
+      "tipo": "ferramenta",
+      "nome": "Streamlit",
+      "finalidade": "",
+      "contexto": "",
+      "x": 47.052631654424495,
+      "y": -253.7574017302686
+    },
+    {
+      "id": "004a876f-0f9e-434c-923e-b364d5db5a40",
+      "tipo": "ferramenta",
+      "nome": "Dash",
+      "finalidade": "",
+      "contexto": "",
+      "x": 177.95392389223468,
+      "y": 301.3833273731191
+    },
+    {
+      "id": "8fa68f54-4a5a-442b-a15c-0220ddda1196",
+      "tipo": "ferramenta",
+      "nome": "JavaScript",
+      "finalidade": "",
+      "contexto": "",
+      "x": 48.45429541761434,
+      "y": -177.9647432242306
+    },
+    {
+      "id": "7a3d5435-0594-4144-aae2-86565ca06955",
+      "tipo": "ferramenta",
+      "nome": "Brapi",
+      "finalidade": "",
+      "contexto": "",
+      "x": 200.85476624245453,
+      "y": -137.23813851527763
+    },
+    {
+      "id": "64df05ee-6315-4dfc-9c21-b48696abac47",
+      "tipo": "ferramenta",
+      "nome": "yfinance",
+      "finalidade": "",
+      "contexto": "",
+      "x": 140.1613959213833,
+      "y": -307.65394610673906
+    },
+    {
+      "id": "4d438d97-db86-4aff-b99f-91778994317f",
+      "tipo": "ferramenta",
+      "nome": "Pandas",
+      "finalidade": "",
+      "contexto": "",
+      "x": -20.190781534139024,
+      "y": 111.64532489287085
+    },
+    {
+      "id": "9a6da5d3-865f-4bf4-8f79-1cbc1db2d725",
+      "tipo": "ferramenta",
+      "nome": "Plotly.js",
+      "finalidade": "",
+      "contexto": "",
+      "x": 105.95392289223467,
+      "y": 199.2110550929268
+    },
+    {
+      "id": "dfacad7b-807d-4840-aa88-fba1704b3919",
+      "tipo": "ferramenta",
+      "nome": "API do YouTube",
+      "finalidade": "",
+      "contexto": "",
+      "x": -302.6500593039031,
+      "y": 155.0995704373636
+    },
+    {
+      "id": "da1f58e2-1115-46b9-82ad-0918e4afa8e7",
+      "tipo": "ferramenta",
+      "nome": "Regex",
+      "finalidade": "",
+      "contexto": "",
+      "x": -376.35204493159216,
+      "y": 143.64775993171043
+    },
+    {
+      "id": "107f7267-5e79-422e-bc11-61ff52a15fb5",
+      "tipo": "ferramenta",
+      "nome": "Excel",
+      "finalidade": "",
+      "contexto": "",
+      "x": -360.0831067854745,
+      "y": 55.188085587185704
+    },
+    {
+      "id": "a25a522a-4590-4a44-b083-5e1e9e9281aa",
+      "tipo": "ferramenta",
+      "nome": "Tableau",
+      "finalidade": "",
+      "contexto": "",
+      "x": -284.88507128985594,
+      "y": 227.0995714373636
+    },
+    {
+      "id": "bc9869af-0e82-4ce4-acf5-3df8568343d1",
+      "tipo": "ferramenta",
+      "nome": "LlamaIndex",
+      "finalidade": "",
+      "contexto": "",
+      "x": 61.00877768140822,
+      "y": -475.5954235840505
+    },
+    {
+      "id": "15c7fcf6-c7c4-4563-9c75-16955432d4e4",
+      "tipo": "ferramenta",
+      "nome": "LLM",
+      "finalidade": "",
+      "contexto": "",
+      "x": -103.90860717404495,
+      "y": -285.99280375996847
+    },
+    {
+      "id": "c0515178-bc8f-471d-aeae-9f9919621452",
+      "tipo": "ferramenta",
+      "nome": "openpyxl",
+      "finalidade": "",
+      "contexto": "",
+      "x": 38.777349406855016,
+      "y": 452.65827666010836
+    },
+    {
+      "id": "07e9ce54-d712-4859-b157-265820adfe82",
+      "tipo": "ferramenta",
+      "nome": "hash",
+      "finalidade": "",
+      "contexto": "",
+      "x": -99.29212196754702,
+      "y": 236.6582736601083
+    },
+    {
+      "id": "ed4ffa2b-0de1-4820-aa07-2ff9165a24cd",
+      "tipo": "ferramenta",
+      "nome": "tqdm",
+      "finalidade": "",
+      "contexto": "",
+      "x": -73.09125492019173,
+      "y": 421.4030321167151
+    },
+    {
+      "id": "2583eb58-9bc6-4576-bf0d-88de16adc7ff",
+      "tipo": "ferramenta",
+      "nome": "logging",
+      "finalidade": "",
+      "contexto": "",
+      "x": 12.866182043664915,
+      "y": 380.65827566010836
+    },
+    {
+      "id": "5ada4923-e0c8-4c9c-9332-2bc017520bec",
+      "tipo": "tag",
+      "nome": "RAG",
+      "x": -28.566273532412712,
+      "y": -495.0970687262311
+    },
+    {
+      "id": "a8f7cb34-bd11-47a4-ae4a-12288c50722f",
+      "tipo": "tag",
+      "nome": "Processamento de Documentos",
+      "x": -112.7910355579656,
+      "y": -470.95900183242065
+    },
+    {
+      "id": "4add80a6-cbaa-4fdf-84b3-8eece512cf47",
+      "tipo": "tag",
+      "nome": "ETL",
+      "x": -116.65409822724745,
+      "y": 349.403031116715
+    },
+    {
+      "id": "de26ff75-9f33-4692-ab8c-649f15df9ad4",
+      "tipo": "tag",
+      "nome": "Anonimização de Dados",
+      "x": 95.99427469695024,
+      "y": 55.21105309292684
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "Tkinter",
+      "id": "6496789f-75b8-4e20-8737-266f392cdd99",
+      "x": -232.5287938810602,
+      "y": -83.96313887585767
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "Supabase",
+      "id": "af02e87d-6251-44da-9afa-7fd0a3a6d430",
+      "x": 167.47020420065488,
+      "y": -235.6539451067391
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "SQL",
+      "id": "5e7a7022-bd13-478e-a890-2564d7b45dba",
+      "x": -157.4637143675994,
+      "y": -32.35467710712914
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "MSI Package",
+      "id": "2ce28403-e07b-4f9d-94c6-9caf5b615545",
+      "x": 95.99427469695024,
+      "y": -19.653942106739077
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "PG8000",
+      "id": "8d9dd0d2-576e-456b-be10-6fa9be6bebcc",
+      "x": -120.00572830304975,
+      "y": 45.28862161481131
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "API Telegram",
+      "id": "04581e00-c559-483b-9518-ae7be970d99a",
+      "x": 120.45429641761434,
+      "y": -163.65394410673903
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "AssemblyAI",
+      "id": "2bfb3ee6-b050-4d3f-961e-1f041110aad4",
+      "x": -215.01836127683853,
+      "y": -194.16223604776044
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "MariaDB",
+      "id": "f99a3b5b-3834-4f2f-b4d9-5f8118c06e23",
+      "x": -287.01836227683856,
+      "y": -162.3357781163438
+    },
+    {
+      "tipo": "ferramenta",
+      "nome": "Raspberry Pi",
+      "id": "242b780e-3629-4f8f-8b1d-e0354e79c513",
+      "x": -216.9666935433426,
+      "y": -266.16223704776047
+    },
+    {
+      "tipo": "tag",
+      "nome": "Banco de Dados",
+      "id": "f3204252-a5c6-4eed-8c6f-bf47b7d45dfb",
+      "x": -149.90762959674552,
+      "y": -104.35467810712913
+    },
+    {
+      "tipo": "tag",
+      "nome": "Aplicações Desktop",
+      "id": "53357415-26e8-48fa-a7f7-def0c1fb0413",
+      "x": -48.005727303049774,
+      "y": 39.645323892870856
+    },
+    {
+      "tipo": "tag",
+      "nome": "Chatbot",
+      "id": "09602237-b58f-4981-88c9-3ad4bd0bb8fe",
+      "x": 95.99427469695024,
+      "y": -91.65394310673905
+    },
+    {
+      "tipo": "tag",
+      "nome": "LLM",
+      "id": "dabc15cf-7312-49d5-a5c0-3fada227c504",
+      "x": 23.99427369695023,
+      "y": 38.03525977576938
+    }
+  ],
+  "edges": []
+}
