@@ -5,6 +5,7 @@ import cola from 'cytoscape-cola';
 import dagre from 'cytoscape-dagre';
 import coseBilkent from 'cytoscape-cose-bilkent';
 import { useGraphStore, NodeType, ProjetoNode } from '../hooks/graphStore';
+import type { LayoutType } from '../hooks/graphStore';
 import './GraphCanvas.css';
 
 cytoscape.use(cola);
@@ -29,7 +30,7 @@ interface GraphCanvasProps {
   searchTerm?: string;
 }
 
-function buildLayoutConfig(cy: any, type: LayoutType, randomize: boolean): any {
+function buildLayoutConfig(_cy: any, type: LayoutType, randomize: boolean): any {
   const base: any = {
     animate: true,
     animationDuration: 500,
@@ -98,7 +99,7 @@ function buildLayoutConfig(cy: any, type: LayoutType, randomize: boolean): any {
 
 export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTerm }) => {
   const cyRef = useRef<any>(null);
-  const initializedRef = useRef(false);
+  //const initializedRef = useRef(false);
 
   // Refs estáveis para callbacks — evita que handleCyInit mude de referência
   const onNodeSelectRef = useRef(onNodeSelect);

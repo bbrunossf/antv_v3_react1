@@ -16,8 +16,8 @@ interface HeaderProps {
   onSyncTools: () => void;
   onSyncTags: () => void;
   onShuffle: () => void;
-  searchTerm: string;
-  onSearchChange: (value: string) => void;
+  // searchTerm: string;
+  // onSearchChange: (value: string) => void;
   onSearch: (term: string) => void;
   layoutType: string;
   onLayoutChange: (type: string) => void;
