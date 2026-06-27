@@ -1,16 +1,307 @@
-# teste 03 com a biblioteca GraphCanvas AntV Aliababa + Cytoscape
-  subteste 01 com React (não é o React Router)  
+```markdown
+# Tech Project Graph
 
-## Resumo
-Teste usando Vite e instalando a biblioteca com npm.  
-A estrutura com React é maior; olhar com calma.  
+**Visualize e gerencie a complexidade dos seus projetos técnicos como um grafo interativo.**
 
-Código de sugestão do #MANUS#, mas na edição ele substituiu o uso do G6 pelo Cytoscape.  
-Lembrar de instalar a biblioteca com `npm install react-cytoscapejs --save`.  
+[![Deploy to GitHub Pages](https://github.com/bbrunossf/antv_v3_react1/actions/workflows/deploy.yml/badge.svg)](https://github.com/bbrunossf/antv_v3_react1/actions/workflows/deploy.yml)
 
-Depois de instalar aos poucos cada componente, o código rodou.  
-Por enquanto é o que deu melhor resultado.  
+---
 
-A aplicação usa dados do arquivo public/mydata.json ao iniciar. Caso o usuário não exporte os dados atualizados sobrescrevendo o arquivo, as alterações são perdidas (implantado para garantir a exibição dos dados originais ao publicar o site estático).
+## Sobre o Projeto
 
-#TODO: verificar como visualizar em forma cronológica e agrupada de outras maneiras.
+Tech Project Graph é uma aplicação web SPA que permite mapear projetos, ferramentas e conhecimentos na forma de um **grafo de rede interativo**. Inspirado em visualizações de sistemas biológicos e redes complexas, a interface combina um tema escuro elegante com um canvas dinâmico onde cada elemento pulsa com identidade visual própria.
+
+Ideal para engenheiros, pesquisadores e tech leads que desejam **documentar, explorar e compartilhar** o ecossistema técnico de seus projetos.
+
+---
+
+## Funcionalidades
+
+### Visualização do Grafo
+- **Canvas interativo** com zoom (scroll), pan (arrastar) e reorganização de nós
+- **4 algoritmos de layout**: Concêntrico, CoSe, CoSe Bilkent e Dagre
+- **Realce por proximidade** — ao passar o mouse sobre um nó, conexões relacionadas se destacam e o restante esmaece
+- **Busca textual** com destaque visual do nó correspondente e suas conexões
+- **Arraste de nós** com salvamento automático da posição
+
+### Gerenciamento de Dados
+- **3 tipos de nós**:
+  | Tipo | Cor | Forma | Descrição |
+  |------|-----|-------|-----------|
+  | Projeto | Laranja `#FF6B35` | Retângulo arredondado | Projetos com datas, tarefas, ferramentas, tags, etc. |
+  | Ferramenta | Azul ciano `#00D9FF` | Elipse | Tecnologias e ferramentas utilizadas |
+  | Tag | Verde `#10B981` | Diamante | Tags de conhecimento, tarefas ou resultados |
+
+- **Criação e edição de nós** via painel lateral com formulário completo
+- **Criação de relações** (arestas) entre quaisquer nós
+- **Sincronização automática**:
+  - `Ferramentas` — cria nós de ferramenta a partir das listas dos projetos e conecta-os automaticamente
+  - `Tags` — cria nós de tag a partir das tags dos projetos e conecta-os automaticamente
+- **Exportação/Importação** de dados em JSON
+- **Limpeza total** dos dados com confirmação
+
+### Persistência
+- Os dados são carregados do arquivo `public/mydata.json` na inicialização
+- Alterações são salvas automaticamente no **localStorage** do navegador
+- Exporte para JSON e faça backup a qualquer momento
+
+### Interface
+- **Tema escuro** com gradiente de fundo (`#1a1a2e` → `#0f0f1e`)
+- **Header minimalista** com logo SVG, busca, seletor de layout e botões de ação
+- **Painéis laterais** (NodePanel e RelationPanel) com animação de deslize
+- **Contador de nós** no canto do canvas
+- **Página 404** estilizada com botão de retorno
+- Totalmente **responsivo** (desktop, tablet e mobile)
+
+---
+
+## Stack Tecnológica
+
+| Camada | Tecnologia |
+|--------|-----------|
+| Framework | React 19 + TypeScript |
+| Build | Vite 8 |
+| Visualização | Cytoscape.js + react-cytoscapejs |
+| Layouts | cytoscape-cola, cytoscape-dagre, cytoscape-cose-bilkent |
+| Roteamento | wouter (SPA client-side) |
+| Estilo | Tailwind CSS v4 + shadcn/ui |
+| Estado | Zustand |
+| Ícones | Lucide React |
+| Notificações | Sonner |
+| Temas | next-themes (dark/light switchable) |
+| Hospedagem | GitHub Pages |
+
+---
+
+## Estrutura do Projeto
+
+```
+antv_v3_react1/
+├── public/
+│   ├── favicon.svg
+│   ├── icons.svg
+│   ├── mydata.json          # Dados iniciais do grafo
+│   └── 404.html             # Redirect para SPA no GitHub Pages
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── ui/              # Componentes shadcn/ui (button, input, select, etc.)
+│   │   ├── ErrorBoundary.tsx
+│   │   ├── GraphCanvas.tsx   # Canvas Cytoscape — coração da aplicação
+│   │   ├── Header.tsx        # Header com busca, layout e ações
+│   │   ├── NodeCounter.tsx   # Contador de nós no canvas
+│   │   ├── NodePanel.tsx     # Painel de criação/edição de nós
+│   │   └── RelationPanel.tsx # Painel de criação de relações
+│   ├── contexts/
+│   │   └── ThemeContext.tsx   # Provedor de tema (dark/light)
+│   ├── hooks/
+│   │   ├── graphStore.ts     # Store Zustand com toda a lógica do grafo
+│   │   └── useLocalStorage.ts# Persistência em localStorage + carga inicial
+│   ├── lib/
+│   │   └── utils.ts          # Função cn() para classes condicionais
+│   ├── pages/
+│   │   ├── Home.tsx          # Página principal
+│   │   └── NotFound.tsx      # Página 404
+│   ├── App.tsx               # Componente raiz com rotas e providers
+│   ├── index.css             # CSS global + variáveis Tailwind
+│   └── main.tsx              # Entry point
+├── index.html
+├── vite.config.ts
+├── tsconfig.json
+├── package.json
+└── .github/
+    └── workflows/
+        └── deploy.yml        # Deploy automático no GitHub Pages
+```
+
+---
+
+## Modelo de Dados
+
+### Nó (`GraphNode`)
+
+```typescript
+type NodeType = 'projeto' | 'ferramenta' | 'tag';
+
+interface ProjetoNode {
+  id: string;
+  tipo: 'projeto';
+  nome: string;
+  descricao?: string;
+  data_inicio?: string;
+  data_fim?: string;
+  ferramentas?: string[];
+  tarefas?: string[];
+  complexidade?: 'Baixa' | 'Média' | 'Alta';
+  conhecimentos?: string[];
+  resultados?: string[];
+  tags?: { nome: string; peso: number }[];
+  x?: number;
+  y?: number;
+}
+
+interface FerramentaNode {
+  id: string;
+  tipo: 'ferramenta';
+  nome: string;
+  finalidade?: string;
+  contexto?: string;
+  x?: number;
+  y?: number;
+}
+
+interface TagNode {
+  id: string;
+  tipo: 'tag';
+  nome: string;
+  x?: number;
+  y?: number;
+}
+```
+
+### Aresta (`GraphEdge`)
+
+```typescript
+interface GraphEdge {
+  id: string;
+  source: string;   // ID do nó de origem
+  target: string;   // ID do nó de destino
+  tipo?: string;    // Tipo da relação
+}
+```
+
+---
+
+## Guia de Uso
+
+### Adicionar um projeto
+1. Clique em **Novo Nó** no header
+2. Selecione o tipo **Projeto**
+3. Preencha nome, descrição, datas, ferramentas, tarefas, tags, etc.
+4. Clique em **Criar**
+
+### Conectar elementos
+1. Clique em **Relação** no header
+2. Selecione o nó de origem e o nó de destino
+3. Confirme
+
+### Sincronizar automaticamente
+- **Ferramentas**: lê a lista de ferramentas de cada projeto e cria os nós + arestas automaticamente
+- **Tags**: faz o mesmo para as tags associadas aos projetos
+
+### Buscar um nó
+- Digite na caixa de busca do header e pressione **Enter** ou clique na lupa
+- O nó correspondente será destacado junto com suas conexões
+- Clique no **X** para limpar a busca
+
+### Alterar o layout
+- Use o dropdown no header para escolher entre Concêntrico, CoSe, CoSe Bilkent ou Dagre
+- Clique no ícone de **embaralhar** 🔀 para randomizar as posições
+
+### Exportar/Importar
+- **Exportar**: baixa um arquivo JSON com todos os nós (as arestas não são incluídas na exportação)
+- **Importar**: carrega um arquivo JSON. Campos ausentes (id, tipo) são preenchidos automaticamente
+
+---
+
+## Desenvolvimento Local
+
+### Pré-requisitos
+- Node.js 22+
+- npm
+
+### Instalação
+
+```bash
+git clone https://github.com/bbrunossf/antv_v3_react1.git
+cd antv_v3_react1
+npm install
+```
+
+### Rodar em desenvolvimento
+
+```bash
+npm run dev
+```
+
+Acesse `http://localhost:5173` no navegador.
+
+### Build de produção
+
+```bash
+npm run build
+```
+
+A saída vai para a pasta `dist/`.
+
+### Preview do build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+---
+
+## Deploy
+
+O projeto é hospedado no **GitHub Pages** com deploy automático via GitHub Actions.
+
+- **URL**: [https://bbrunossf.github.io/antv_v3_react1/](https://bbrunossf.github.io/antv_v3_react1/)
+- **Branch**: `main`
+- **Workflow**: `.github/workflows/deploy.yml`
+- **Trigger**: push na branch `main`
+
+O workflow executa:
+1. Checkout do código
+2. Instalação de dependências (`npm ci`)
+3. Build de produção (`npm run build`)
+4. Upload do artifact (`dist/`)
+5. Deploy no GitHub Pages
+
+### Configuração do GitHub Pages
+
+O repositório deve ter **Settings → Pages → Source: GitHub Actions** habilitado. O arquivo `vite.config.ts` define `base: "/antv_v3_react1/"` para que todos os assets sejam servidos com o prefixo correto.
+
+---
+
+## Design
+
+O design segue a abordagem **Organic Network Aesthetic**, inspirada em design biofílico e visualização de sistemas complexos.
+
+- **Hierarquia cromática**: cada tipo de nó tem uma cor e forma distintas
+- **Fluidez orgânica**: layouts dinâmicos sem rigidez de grade
+- **Profundidade**: sombras, blur e sobreposição criam sensação de camadas
+- **Minimalismo funcional**: apenas elementos essenciais visíveis; detalhes sob interação
+
+### Paleta de Cores
+
+| Elemento | Cor |
+|----------|-----|
+| Projetos | `#FF6B35` (laranja coral) |
+| Ferramentas | `#00D9FF` (azul ciano) |
+| Tags | `#10B981` (verde esmeralda) |
+| Fundo | Gradiente `#1a1a2e` → `#0f0f1e` |
+| Arestas | `#D1D5DB` |
+
+---
+
+## Licença
+
+Este projeto é privado.
+
+---
+
+## TODO
+
+- [ ] Visualização cronológica dos projetos (timeline)
+- [ ] Agrupamento alternativo dos nós (clusterização)
+- [ ] Importação de arestas no JSON de entrada
+- [ ] Temas customizáveis
+- [ ] Filtros avançados por tipo, complexidade, período
+```

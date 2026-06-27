@@ -45,8 +45,8 @@
           "peso": 7
         }
       ],
-      "x": 26,
-      "y": 944
+      "x": 545.1660373644534,
+      "y": 538.28255949404
     },
     {
       "id": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
@@ -101,13 +101,13 @@
           "peso": 8
         }
       ],
-      "x": 26,
-      "y": 434
+      "x": 397.00845523568233,
+      "y": 328.50083223799464
     },
     {
       "id": "a12efee9-4527-40ab-b280-24411352e22a",
       "tipo": "projeto",
-      "nome": "Chatbot com Telegram para registros de áudio e texto",
+      "nome": "Chatbot Telegram",
       "descricao": "Sistema baseado em bot do Telegram para captura e armazenamento de mensagens de texto, áudios e transcrições categorizadas em um banco de dados relacional. O projeto incluiu funcionalidades de busca textual, geração de relatórios em PDF e resumos automáticos utilizando modelos de linguagem, funcionando como uma memória pessoal de mensagens curtas recuperáveis posteriormente.",
       "data_inicio": "2024-04-22",
       "data_fim": "2024-11-24",
@@ -161,13 +161,13 @@
           "peso": 8
         }
       ],
-      "x": 26,
-      "y": 1454
+      "x": 592,
+      "y": 574.5255888325765
     },
     {
       "id": "2e75b310-e2c0-42ad-938f-a03b9577e080",
       "tipo": "projeto",
-      "nome": "Chat com documentos PDF",
+      "nome": "Chat PDF",
       "descricao": "Protótipo de sistema RAG (Retrieval-Augmented Generation) em memória, com interface web para upload de arquivos PDF e interação via chat, permitindo realizar perguntas e recuperar informações contidas nos documentos carregados.",
       "data_inicio": "2024-01-07",
       "data_fim": "2024-10-29",
@@ -209,13 +209,13 @@
           "peso": 8
         }
       ],
-      "x": 26,
-      "y": 1959
+      "x": 646.8043654350507,
+      "y": 596.9634755655828
     },
     {
       "id": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
       "tipo": "projeto",
-      "nome": "consolidação de dados de arquivos Excel",
+      "nome": "consolidação arquivos Excel",
       "descricao": "Projeto para consolidar dados de aproximadamente 300 arquivos Excel com estrutura padronizada, permitindo análise conjunta da massa de dados. Incluiu anonimização de dados pessoais por meio de tabela hash, mapeamento de campos e ingestão automatizada dos arquivos.",
       "data_inicio": "2023-04-02",
       "data_fim": "2023-04-30",
@@ -255,8 +255,8 @@
           "peso": 7
         }
       ],
-      "x": 26,
-      "y": 3066
+      "x": 794.6746142846412,
+      "y": 475.16696697375085
     },
     {
       "id": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
@@ -307,8 +307,8 @@
           "peso": 8
         }
       ],
-      "x": 26,
-      "y": 2550
+      "x": 767,
+      "y": 496.583302491977
     },
     {
       "id": "0f690c69-08fc-4005-b482-a7974e4b6ea9",
@@ -354,8 +354,8 @@
           "peso": 6
         }
       ],
-      "x": 26,
-      "y": 3698
+      "x": 742,
+      "y": 384
     },
     {
       "id": "de7bb42c-0ab3-4035-875e-70442dbac193",
@@ -363,8 +363,8 @@
       "nome": "Python",
       "finalidade": "Desenvolvimento da biblioteca de análise de estruturas de código.",
       "contexto": "Linguagem principal utilizada no projeto dir.",
-      "x": 178,
-      "y": 2678
+      "x": 702,
+      "y": 804
     },
     {
       "id": "caef911d-fcb1-40ae-8c69-cdc29bfdee7e",
@@ -372,13 +372,13 @@
       "nome": "inspect",
       "finalidade": "Realizar introspecção de objetos, módulos, classes e funções Python.",
       "contexto": "Utilizado e estudado durante o desenvolvimento do projeto dir.",
-      "x": 178,
-      "y": 3902
+      "x": 632.8702720820918,
+      "y": 798.2717474291435
     },
     {
       "id": "b05f9115-5192-456a-b3cc-4137ee93b494",
       "tipo": "projeto",
-      "nome": "Sistema de Download de Músicas e Vídeos para Jellyfin",
+      "nome": "Biblioteca de Músicas e Vídeos para Jellyfin",
       "descricao": "Sistema para download de vídeos e músicas do YouTube, conversão para formatos MP3 e MP4, armazenamento em Raspberry Pi e integração com Jellyfin para criação automática e gerenciamento de bibliotecas e playlists pessoais.",
       "data_inicio": "2025-04-25",
       "data_fim": "2026-06-07",
@@ -432,8 +432,8 @@
           "peso": 8
         }
       ],
-      "x": 26,
-      "y": 4825
+      "x": 397.0084552356824,
+      "y": 439.4991677620056
     },
     {
       "id": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
@@ -486,50 +486,50 @@
           "peso": 8
         }
       ],
-      "x": 26,
-      "y": 4055
+      "x": 734.6156022429246,
+      "y": 509.84205374329895
     },
     {
       "id": "8e719e06-471e-4ba6-b47d-ecd19fd926d3",
       "tipo": "tag",
       "nome": "Programação Orientada a Objetos",
-      "x": 178,
-      "y": 3800
+      "x": 702,
+      "y": 924
     },
     {
       "id": "f30ad657-36b1-45fa-be42-efbb4bacdc7a",
       "tipo": "tag",
       "nome": "Estruturas de Dados",
-      "x": 178,
-      "y": 3698
+      "x": 495.3509465228516,
+      "y": 882.8949475560948
     },
     {
       "id": "725af57d-b670-4ff1-8717-d6c86a7eaf41",
       "tipo": "tag",
       "nome": "APIs",
-      "x": 178,
-      "y": 2780
+      "x": 320.1623381592644,
+      "y": 765.8376618407357
     },
     {
       "id": "23d37e70-5f7f-4e08-b581-a401b6ca2842",
       "tipo": "tag",
       "nome": "Automação",
-      "x": 178,
-      "y": 4616
+      "x": 203.10505244390527,
+      "y": 590.6490534771488
     },
     {
       "id": "f37d7658-7640-4e41-9a1b-4f888464b520",
       "tipo": "tag",
       "nome": "Desenvolvimento Web",
-      "x": 178,
-      "y": 4514
+      "x": 162,
+      "y": 384.00000000000006
     },
     {
       "id": "5fc31254-74f7-4ead-98db-fb3a812668e6",
       "tipo": "tag",
       "nome": "Análise de Dados",
-      "x": 178,
-      "y": 3290
+      "x": 203.1050524439051,
+      "y": 177.3509465228517
     },
     {
       "id": "081a361c-2cdf-431b-a791-d1125e4bb9cc",
@@ -537,8 +537,8 @@
       "nome": "FastAPI",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 4922
+      "x": 565.6262229340329,
+      "y": 781.2432415142666
     },
     {
       "id": "3b493003-4f06-44d4-ab49-ced531386fd0",
@@ -546,8 +546,8 @@
       "nome": "Pydantic",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 4718
+      "x": 502.10209492442914,
+      "y": 753.3789755067254
     },
     {
       "id": "61d58e94-a375-4f7e-9987-38613f99fd73",
@@ -555,8 +555,8 @@
       "nome": "yt-dlp",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 5432
+      "x": 444.0306606703395,
+      "y": 715.4390139464854
     },
     {
       "id": "207884bb-829c-443b-bd77-0cabd5d50459",
@@ -564,8 +564,8 @@
       "nome": "google-api",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 5330
+      "x": 392.99595751728475,
+      "y": 668.4582600828112
     },
     {
       "id": "6c60a8b9-8c86-4737-ae5e-ef04351c2c77",
@@ -573,8 +573,8 @@
       "nome": "FFmpeg",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 5228
+      "x": 350.390079129738,
+      "y": 613.7182264114192
     },
     {
       "id": "6e7c0940-3b10-49c1-af2c-2e0b2b012b65",
@@ -582,8 +582,8 @@
       "nome": "Docker",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 5126
+      "x": 317.37520280487587,
+      "y": 552.7120783542472
     },
     {
       "id": "aeb8844e-4f28-46f6-b53d-c2aaa92651da",
@@ -591,8 +591,8 @@
       "nome": "Remix",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 5024
+      "x": 294.85188830548117,
+      "y": 487.1039045991356
     },
     {
       "id": "4e54dc64-4ba5-443a-92ff-1a3a06de127f",
@@ -600,8 +600,8 @@
       "nome": "Jellyfin API",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 4820
+      "x": 283.4345129371987,
+      "y": 418.68332509837956
     },
     {
       "id": "9e24405e-17e6-4b78-a81c-1fa81ec7964a",
@@ -609,8 +609,8 @@
       "nome": "Streamlit",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 3596
+      "x": 283.4345129371987,
+      "y": 349.3166749016203
     },
     {
       "id": "004a876f-0f9e-434c-923e-b364d5db5a40",
@@ -618,8 +618,8 @@
       "nome": "Dash",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 4412
+      "x": 294.8518883054812,
+      "y": 280.89609540086417
     },
     {
       "id": "8fa68f54-4a5a-442b-a15c-0220ddda1196",
@@ -627,8 +627,8 @@
       "nome": "JavaScript",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 4310
+      "x": 317.3752028048759,
+      "y": 215.28792164575268
     },
     {
       "id": "7a3d5435-0594-4144-aae2-86565ca06955",
@@ -636,8 +636,8 @@
       "nome": "Brapi",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 4208
+      "x": 350.390079129738,
+      "y": 154.28177358858073
     },
     {
       "id": "64df05ee-6315-4dfc-9c21-b48696abac47",
@@ -645,8 +645,8 @@
       "nome": "yfinance",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 4106
+      "x": 392.9959575172848,
+      "y": 99.54173991718858
     },
     {
       "id": "4d438d97-db86-4aff-b99f-91778994317f",
@@ -654,8 +654,8 @@
       "nome": "Pandas",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 2984
+      "x": 444.0306606703395,
+      "y": 52.56098605351468
     },
     {
       "id": "9a6da5d3-865f-4bf4-8f79-1cbc1db2d725",
@@ -663,8 +663,8 @@
       "nome": "Plotly.js",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 4004
+      "x": 502.10209492442914,
+      "y": 14.621024493274604
     },
     {
       "id": "dfacad7b-807d-4840-aa88-fba1704b3919",
@@ -672,8 +672,8 @@
       "nome": "API do YouTube",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 2474
+      "x": 565.6262229340331,
+      "y": -13.243241514266629
     },
     {
       "id": "da1f58e2-1115-46b9-82ad-0918e4afa8e7",
@@ -681,8 +681,8 @@
       "nome": "Regex",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 2372
+      "x": 632.8702720820918,
+      "y": -30.27174742914343
     },
     {
       "id": "107f7267-5e79-422e-bc11-61ff52a15fb5",
@@ -690,8 +690,8 @@
       "nome": "Excel",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 2270
+      "x": 701.9999999999999,
+      "y": -36
     },
     {
       "id": "a25a522a-4590-4a44-b083-5e1e9e9281aa",
@@ -699,8 +699,8 @@
       "nome": "Tableau",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 2168
+      "x": 771.1297279179082,
+      "y": -30.271747429143375
     },
     {
       "id": "bc9869af-0e82-4ce4-acf5-3df8568343d1",
@@ -708,8 +708,8 @@
       "nome": "LlamaIndex",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 2066
+      "x": 838.3737770659673,
+      "y": -13.243241514266515
     },
     {
       "id": "15c7fcf6-c7c4-4563-9c75-16955432d4e4",
@@ -717,8 +717,8 @@
       "nome": "LLM",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 1862
+      "x": 901.897905075571,
+      "y": 14.62102449327466
     },
     {
       "id": "c0515178-bc8f-471d-aeae-9f9919621452",
@@ -726,8 +726,8 @@
       "nome": "openpyxl",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 3494
+      "x": 959.9693393296604,
+      "y": 52.560986053514625
     },
     {
       "id": "07e9ce54-d712-4859-b157-265820adfe82",
@@ -735,8 +735,8 @@
       "nome": "hash",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 3392
+      "x": 1011.0040424827154,
+      "y": 99.5417399171888
     },
     {
       "id": "ed4ffa2b-0de1-4820-aa07-2ff9165a24cd",
@@ -744,8 +744,8 @@
       "nome": "tqdm",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 3188
+      "x": 1053.6099208702622,
+      "y": 154.28177358858102
     },
     {
       "id": "2583eb58-9bc6-4576-bf0d-88de16adc7ff",
@@ -753,36 +753,36 @@
       "nome": "logging",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 3086
+      "x": 1086.6247971951243,
+      "y": 215.28792164575302
     },
     {
       "id": "5ada4923-e0c8-4c9c-9332-2bc017520bec",
       "tipo": "tag",
       "nome": "RAG",
-      "x": 178,
-      "y": 1964
+      "x": 320.16233815926404,
+      "y": 2.1623381592646638
     },
     {
       "id": "a8f7cb34-bd11-47a4-ae4a-12288c50722f",
       "tipo": "tag",
       "nome": "Processamento de Documentos",
-      "x": 178,
-      "y": 1760
+      "x": 495.35094652285113,
+      "y": -114.89494755609468
     },
     {
       "id": "4add80a6-cbaa-4fdf-84b3-8eece512cf47",
       "tipo": "tag",
       "nome": "ETL",
-      "x": 178,
-      "y": 2882
+      "x": 701.9999999999998,
+      "y": -156
     },
     {
       "id": "de26ff75-9f33-4692-ab8c-649f15df9ad4",
       "tipo": "tag",
       "nome": "Anonimização de Dados",
-      "x": 178,
-      "y": 2576
+      "x": 908.6490534771482,
+      "y": -114.89494755609496
     },
     {
       "id": "6496789f-75b8-4e20-8737-266f392cdd99",
@@ -790,8 +790,8 @@
       "nome": "Tkinter",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 536
+      "x": 1109.1481116945188,
+      "y": 280.89609540086434
     },
     {
       "id": "af02e87d-6251-44da-9afa-7fd0a3a6d430",
@@ -799,8 +799,8 @@
       "nome": "Supabase",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 434
+      "x": 1120.5654870628014,
+      "y": 349.31667490162056
     },
     {
       "id": "5e7a7022-bd13-478e-a890-2564d7b45dba",
@@ -808,8 +808,8 @@
       "nome": "SQL",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 944
+      "x": 1120.5654870628014,
+      "y": 418.68332509837995
     },
     {
       "id": "2ce28403-e07b-4f9d-94c6-9caf5b615545",
@@ -817,8 +817,8 @@
       "nome": "MSI Package",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 230
+      "x": 1109.1481116945188,
+      "y": 487.10390459913583
     },
     {
       "id": "8d9dd0d2-576e-456b-be10-6fa9be6bebcc",
@@ -826,8 +826,8 @@
       "nome": "PG8000",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 128
+      "x": 1086.624797195124,
+      "y": 552.7120783542472
     },
     {
       "id": "04581e00-c559-483b-9518-ae7be970d99a",
@@ -835,8 +835,8 @@
       "nome": "API Telegram",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 1658
+      "x": 1053.609920870262,
+      "y": 613.7182264114194
     },
     {
       "id": "2bfb3ee6-b050-4d3f-961e-1f041110aad4",
@@ -844,8 +844,8 @@
       "nome": "AssemblyAI",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 1556
+      "x": 1011.004042482715,
+      "y": 668.4582600828114
     },
     {
       "id": "f99a3b5b-3834-4f2f-b4d9-5f8118c06e23",
@@ -853,8 +853,8 @@
       "nome": "MariaDB",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 1454
+      "x": 959.9693393296602,
+      "y": 715.4390139464855
     },
     {
       "id": "242b780e-3629-4f8f-8b1d-e0354e79c513",
@@ -862,64 +862,64 @@
       "nome": "Raspberry Pi",
       "finalidade": "",
       "contexto": "",
-      "x": 178,
-      "y": 1250
+      "x": 901.8979050755709,
+      "y": 753.3789755067254
     },
     {
       "id": "f3204252-a5c6-4eed-8c6f-bf47b7d45dfb",
       "tipo": "tag",
       "nome": "Banco de Dados",
-      "x": 178,
-      "y": 638
+      "x": 1083.8376618407353,
+      "y": 2.162338159263925
     },
     {
       "id": "53357415-26e8-48fa-a7f7-def0c1fb0413",
       "tipo": "tag",
       "nome": "Aplicações Desktop",
-      "x": 178,
-      "y": 26
+      "x": 1200.8949475560948,
+      "y": 177.35094652285116
     },
     {
       "id": "09602237-b58f-4981-88c9-3ad4bd0bb8fe",
       "tipo": "tag",
       "nome": "Chatbot",
-      "x": 178,
-      "y": 1148
+      "x": 1242,
+      "y": 383.9999999999994
     },
     {
       "id": "dabc15cf-7312-49d5-a5c0-3fada227c504",
       "tipo": "tag",
       "nome": "LLM",
-      "x": 178,
-      "y": 1352
+      "x": 1200.8949475560948,
+      "y": 590.6490534771482
     },
     {
       "tipo": "ferramenta",
       "nome": "API AssemblyAI",
       "id": "d827c152-ba8d-4a75-abe0-3af06b1d4c58",
-      "x": 178,
-      "y": 1046
+      "x": 838.3737770659668,
+      "y": 781.2432415142666
     },
     {
       "tipo": "ferramenta",
       "nome": "Flask",
       "id": "e7b1dd33-0566-4246-950e-58fd813a5a27",
-      "x": 178,
-      "y": 842
+      "x": 771.1297279179078,
+      "y": 798.2717474291435
     },
     {
       "tipo": "tag",
       "nome": "Python",
       "id": "6ff43be3-dce2-434c-a62a-d6ea2b6bc40f",
-      "x": 178,
-      "y": 332
+      "x": 1083.8376618407362,
+      "y": 765.8376618407352
     },
     {
       "tipo": "tag",
       "nome": "Processamento de Texto",
       "id": "d85e9d6d-40d9-4ef0-bb6a-5d5caa480fd2",
-      "x": 178,
-      "y": 740
+      "x": 908.649053477149,
+      "y": 882.8949475560946
     }
   ],
   "edges": []

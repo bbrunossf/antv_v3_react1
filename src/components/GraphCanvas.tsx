@@ -7,6 +7,7 @@ import coseBilkent from 'cytoscape-cose-bilkent';
 import { useGraphStore, NodeType, ProjetoNode } from '../hooks/graphStore';
 import type { LayoutType } from '../hooks/graphStore';
 import './GraphCanvas.css';
+//import { ListEnd } from 'lucide-react';
 
 cytoscape.use(cola);
 cytoscape.use(dagre);
@@ -30,6 +31,159 @@ interface GraphCanvasProps {
   searchTerm?: string;
 }
 
+function compactConcentric(cy: any) {
+    const center = {
+        x: cy.width() / 2,
+        y: cy.height() / 2
+    };
+
+    // Raios escolhidos manualmente.
+    const radius: Record<string, number> = {
+        projeto: 0,
+        ferramenta: 320,
+        tag: 430
+    };
+
+    cy.nodes().forEach((node: any) => {
+
+        const tipo = node.data("tipo");
+
+        const r = radius[tipo];
+
+        if (r === undefined)
+            return;
+
+        const p = node.position();
+
+        const dx = p.x - center.x;
+        const dy = p.y - center.y;
+
+        const angle = Math.atan2(dy, dx);
+
+        node.position({
+            x: center.x + r * Math.cos(angle),
+            y: center.y + r * Math.sin(angle)
+        });
+
+    });
+
+    cy.fit(undefined, 40);
+
+}
+
+function spiralProjects(cy: any) {
+  console.log("Organizando projetos em espiral...");
+
+  const center = {
+    x: cy.width() / 2,
+    y: cy.height() / 2,
+  };
+
+  // Obtém apenas os projetos e ordena por data
+  const projetos = cy
+    .nodes('[tipo="projeto"]')
+    .sort((a: any, b: any) =>
+      (a.data("data_inicio") || "").localeCompare(
+        b.data("data_inicio") || ""
+      )
+    );
+
+  // Agrupa os projetos por ano
+  const grupos = new Map<number, any[]>();
+
+  projetos.forEach((node: any) => {
+    const ano = Number(node.data("data_inicio")?.substring(0, 4));
+
+    if (!grupos.has(ano)) {
+      grupos.set(ano, []);
+    }
+
+    grupos.get(ano)!.push(node);
+  });
+
+  // Lista de anos em ordem crescente
+  const anos = [...grupos.keys()].sort((a, b) => a - b);
+
+  // Configurações da espiral
+  const raioInicial = 40;
+  const incrementoRaio = 90;
+
+  // Quanto a espiral gira entre um ano e outro
+  const incrementoAngulo = Math.PI / 3; // 60°
+
+  anos.forEach((ano, indiceAno) => {
+
+    const grupo = grupos.get(ano)!;
+
+    const raio = raioInicial + indiceAno * incrementoRaio;
+
+    const anguloCentral = indiceAno * incrementoAngulo;
+
+    // Abre mais o arco conforme aumenta a quantidade de projetos
+    const abertura = Math.min(
+      Math.PI / 2,      // máximo de 90°
+      grupo.length * 0.18
+    );
+
+    const passo =
+      grupo.length > 1
+        ? abertura / (grupo.length - 1)
+        : 0;
+
+    grupo.forEach((node: any, indiceProjeto: number) => {
+
+      const angulo =
+        grupo.length === 1
+          ? anguloCentral
+          : anguloCentral - abertura / 2 + indiceProjeto * passo;
+
+      node.position({
+        x: center.x + raio * Math.cos(angulo),
+        y: center.y + raio * Math.sin(angulo),
+      });
+
+    });
+
+  });
+
+  cy.fit(undefined, 40);
+}
+
+function compactOuterRings(cy: any) {
+  console.log("compactando os aneis...");
+
+    const center = {
+        x: cy.width()/2,
+        y: cy.height()/2
+    };
+
+    const radius = {
+        ferramenta:420,
+        tag:540
+    };
+
+    cy.nodes().forEach((node:any)=>{
+        const tipo=node.data("tipo");
+        if(tipo==="projeto")
+            return;
+        const r=radius[tipo];
+        if(!r)
+            return;
+        const p=node.position();
+        const angle=Math.atan2(
+            p.y-center.y,
+            p.x-center.x
+        );
+
+        node.position({
+            x:center.x+r*Math.cos(angle),
+            y:center.y+r*Math.sin(angle)
+        });
+    });
+
+    cy.fit(undefined,40);
+}
+
 function buildLayoutConfig(_cy: any, type: LayoutType, randomize: boolean): any {
   const base: any = {
     animate: true,
@@ -47,17 +201,35 @@ function buildLayoutConfig(_cy: any, type: LayoutType, randomize: boolean): any 
       return {
         ...base,
         name: 'concentric',
+
         concentric: (node: any) => {
-          if (node.data('tipo') === 'projeto') return 1;
-          if (node.data('tipo') === 'ferramenta') return 2;
-          return 3;
+          switch (node.data('tipo')) {
+            case 'projeto':
+              return 100;
+            case 'ferramenta':
+              return 50;
+            default:
+              return 10;
+          }
         },
+
         levelWidth: () => 1,
-        minNodeSpacing: 40,
+
+        // Pode deixar pequeno, pois depois ajustaremos manualmente.
+        minNodeSpacing: 2,
         startAngle: Math.PI / 2,
         clockwise: true,
+
+        // sort: (a: any, b: any) =>
+        //   (a.data('data_inicio') || '').localeCompare(
+        //     b.data('data_inicio') || ''
+        //   ),
         sort: (a: any, b: any) =>
-          (a.data('data_inicio') || '').localeCompare(b.data('data_inicio') || ''),
+          (a.data("data_inicio") || "")
+          .localeCompare(b.data("data_inicio") || ""),
+
+        animate: true,
+        animationDuration: 500
       };
 
     case 'cose':
@@ -168,12 +340,8 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
       selector: 'node',
       style: {
         'background-color': (ele: any) => getNodeColor(ele.data('tipo')),
+        "background-opacity" : 0.3,
         'label': 'data(label)',
-        'width': 50,
-        'height': 50,
-        'text-valign': 'center',
-        'text-halign': 'center',
-        'font-size': 10,
         'color': '#fff',
         'border-width': 2,
         'border-color': (ele: any) => {
@@ -185,15 +353,23 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
         },
 
         'text-background-color': '#000',
-        'text-background-opacity': 0.3,
+        'text-background-opacity': 0.15,
         'text-background-padding': '2px',
       },
     },
     {
         selector: 'node[tipo="projeto"]',
         style: {
-          shape: 'round-rectangle',
-          'background-color': '#FF6B35'
+          shape: 'ellipse',
+          'width': 60,
+          'height': 60,
+          'text-valign': 'center',
+          'text-halign': 'right',
+          'text-margin-x': 10,
+          'font-size': 16,
+          'text-wrap': 'wrap',
+          'text-max-width': '260px',
+          'text-overflow-wrap': 'whitespace',
         }
       },
 
@@ -201,7 +377,11 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
         selector: 'node[tipo="ferramenta"]',
         style: {
           shape: 'ellipse',
-          'background-color': '#00D9FF'
+          'width': 50,
+          'height': 50,
+          'text-valign': 'center',
+          'text-halign': 'center',
+          'font-size': 16,
         }
       },
 
@@ -209,7 +389,14 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
         selector: 'node[tipo="tag"]',
         style: {
           shape: 'diamond',
-          'background-color': '#10B981'
+          'width': 40,
+          'height': 40,
+          'text-valign': 'center',
+          'text-halign': 'right',
+          'font-size': 22,
+          'text-wrap': 'wrap',
+          'text-max-width': '160px',
+          'text-overflow-wrap': 'whitespace',
         }
       },
     {
@@ -234,7 +421,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
                   return peso ? Math.max(0.5, peso * 1.5) : 1.5;
                 },
         'opacity': 0.6,
-        'curve-style': 'bezier',
+        'curve-style': 'straight-triangle',
       },
     },
     {
@@ -252,12 +439,18 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
     const config = buildLayoutConfig(cy, type, shuffle);
     const layout = cy.layout(config);
     layout.on('layoutstop', () => {
+      spiralProjects(cy);
+      compactOuterRings(cy);
+
       cy.nodes().forEach((node: any) => {
         const pos = node.position();
         updateNodeRef.current(node.id(), { x: pos.x, y: pos.y });
       });
+
+
     });
     layout.run();
+    cy.fit(undefined, 40);
   }, []);
 
 
@@ -346,16 +539,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
     //   centerGraph: true, // adjusts the node positions initially to center the graph (pass false if you want to start the layout from the current position)
     // });
 
-  //   layout.on('layoutstop', () => {
-  //         cy.nodes().forEach((node: any) => {
-  //           const pos = node.position();
-  //           updateNodeRef.current(node.id(), { x: pos.x, y: pos.y });
-  //         });
-  //       });
-
-  //   layout.run();
-  // }, []);
-
 
 
   // Update selected state
@@ -380,31 +563,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
          }, 100);
          return () => clearTimeout(timer);
        }, [layoutTrigger, runAndSaveLayout]);
-  //     const layout = cyRef.current.layout({
-  //       name: 'cola',
-  //       animate: true,
-  //       refresh: 1,
-  //       maxSimulationTime: 4000,
-  //       ungrabifyWhileSimulating: false,
-  //       fit: true,
-  //       padding: 30,
-  //       randomize: true,           // posições aleatórias
-  //       avoidOverlap: true,
-  //       handleDisconnected: true,
-  //       convergenceThreshold: 0.01,
-  //       centerGraph: true,
-  //     });
-  //     layout.on('layoutstop', () => {
-  //       cyRef.current.nodes().forEach((node: any) => {
-  //         const pos = node.position();
-  //         updateNodeRef.current(node.id(), { x: pos.x, y: pos.y });
-  //       });
-  //     });
-  //     layout.run();
-  //   }, 100);
 
-  //   return () => clearTimeout(timer);
-  // }, [layoutTrigger]);
 
   // Realce de busca
   useEffect(() => {

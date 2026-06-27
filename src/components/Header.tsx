@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
                   onSearch(inputValue.trim());
                 }
               }}
-              className="h-8 w-40 text-xs"
+              className="h-8 w-40 text-xs text-white placeholder:text-white/50 bg-white/10 border-white/20"
             />
             {inputValue && (
               <Button
@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
 
         <div className="header-layout">
           <Select value={layoutType} onValueChange={onLayoutChange}>
-            <SelectTrigger className="h-8 w-36 text-xs">
+            <SelectTrigger className="h-8 w-36 text-xs text-white bg-white/10 border-white/20">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
