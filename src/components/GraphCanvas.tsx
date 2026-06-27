@@ -31,45 +31,45 @@ interface GraphCanvasProps {
   searchTerm?: string;
 }
 
-function compactConcentric(cy: any) {
-    const center = {
-        x: cy.width() / 2,
-        y: cy.height() / 2
-    };
+// function compactConcentric(cy: any) {
+//     const center = {
+//         x: cy.width() / 2,
+//         y: cy.height() / 2
+//     };
 
-    // Raios escolhidos manualmente.
-    const radius: Record<string, number> = {
-        projeto: 0,
-        ferramenta: 320,
-        tag: 430
-    };
+//     // Raios escolhidos manualmente.
+//     const radius: Record<string, number> = {
+//         projeto: 0,
+//         ferramenta: 320,
+//         tag: 430
+//     };
 
-    cy.nodes().forEach((node: any) => {
+//     cy.nodes().forEach((node: any) => {
 
-        const tipo = node.data("tipo");
+//         const tipo = node.data("tipo");
 
-        const r = radius[tipo];
+//         const r = radius[tipo];
 
-        if (r === undefined)
-            return;
+//         if (r === undefined)
+//             return;
 
-        const p = node.position();
+//         const p = node.position();
 
-        const dx = p.x - center.x;
-        const dy = p.y - center.y;
+//         const dx = p.x - center.x;
+//         const dy = p.y - center.y;
 
-        const angle = Math.atan2(dy, dx);
+//         const angle = Math.atan2(dy, dx);
 
-        node.position({
-            x: center.x + r * Math.cos(angle),
-            y: center.y + r * Math.sin(angle)
-        });
+//         node.position({
+//             x: center.x + r * Math.cos(angle),
+//             y: center.y + r * Math.sin(angle)
+//         });
 
-    });
+//     });
 
-    cy.fit(undefined, 40);
+//     cy.fit(undefined, 40);
 
-}
+// }
 
 function spiralProjects(cy: any) {
   console.log("Organizando projetos em espiral...");
@@ -166,7 +166,7 @@ function compactOuterRings(cy: any) {
         const tipo=node.data("tipo");
         if(tipo==="projeto")
             return;
-        const r=radius[tipo];
+        const r = radius[tipo as keyof typeof radius];
         if(!r)
             return;
         const p=node.position();
