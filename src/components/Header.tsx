@@ -2,6 +2,8 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Plus, Link2, Download, Trash2, Wrench, Tag, Shuffle, Search, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
 import { useState} from 'react';
 import './Header.css';
 
@@ -17,6 +19,9 @@ interface HeaderProps {
   searchTerm: string;
   onSearchChange: (value: string) => void;
   onSearch: (term: string) => void;
+  layoutType: string;
+  onLayoutChange: (type: string) => void;
+
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -29,6 +34,9 @@ export const Header: React.FC<HeaderProps> = ({
   onSyncTags,
   onShuffle,
   onSearch,
+  layoutType,
+  onLayoutChange,
+
 }) => {
   const [inputValue, setInputValue] = useState('');
   return (
@@ -85,6 +93,21 @@ export const Header: React.FC<HeaderProps> = ({
             </Button>
           </div>
         </div>
+
+        <div className="header-layout">
+          <Select value={layoutType} onValueChange={onLayoutChange}>
+            <SelectTrigger className="h-8 w-36 text-xs">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="concentric">Concêntrico</SelectItem>
+              <SelectItem value="cose">CoSe</SelectItem>
+              <SelectItem value="cose-bilkent">CoSe Bilkent</SelectItem>
+              <SelectItem value="dagre">Dagre</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
 
 
 

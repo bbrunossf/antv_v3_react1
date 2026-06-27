@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 export type NodeType = 'projeto' | 'ferramenta' | 'tag';
 export type ComplexityLevel = 'Baixa' | 'Média' | 'Alta';
+export type LayoutType = 'concentric' | 'cose' | 'cose-bilkent' | 'dagre';
+
 
 export interface ProjetoNode {
   id: string;
@@ -55,6 +57,9 @@ interface GraphStore {
   selectedNodeId: string | null;
   layoutTrigger: number;
   triggerLayout: () => void;
+  layoutType: LayoutType;
+  setLayoutType: (type: LayoutType) => void;
+
 
   // Node actions
   addNode: (node: Omit<GraphNode, 'id'>) => string;
@@ -81,6 +86,7 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
   edges: [],
   selectedNodeId: null,
   layoutTrigger: 0,
+  layoutType: 'concentric',
 
   addNode: (node) => {
     const id = uuidv4();
@@ -153,6 +159,11 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
   triggerLayout: () => {
     set((state) => ({ layoutTrigger: state.layoutTrigger + 1 }));
   },
+
+  setLayoutType: (type) => {
+    set({ layoutType: type });
+  },
+
 
   clearAll: () => {
     set({

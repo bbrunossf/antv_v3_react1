@@ -144,6 +144,10 @@ export default function Home() {
   const triggerLayout = useGraphStore((state) => state.triggerLayout);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const layoutType = useGraphStore((s) => s.layoutType);
+  const setLayoutType = useGraphStore((s) => s.setLayoutType);
+
+
 
 
   const handleNewNode = useCallback(() => {
@@ -391,6 +395,9 @@ export default function Home() {
         onSyncTags={handleSyncTags}
         onShuffle={handleShuffle}
         onSearch={handleSearch}
+        layoutType={layoutType}
+        onLayoutChange={(type) => setLayoutType(type as any)}
+
       />
 
       <div className="graph-container">
