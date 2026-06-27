@@ -9,7 +9,7 @@ export const useLocalStorage = () => {
 
   // Carrega mydata.json na montagem
   useEffect(() => {
-    fetch('/mydata.json')
+    fetch(`${import.meta.env.BASE_URL}mydata.json`)
       .then((res) => {
         if (!res.ok) throw new Error('mydata.json não encontrado');
         return res.json();
