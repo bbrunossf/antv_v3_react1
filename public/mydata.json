@@ -45,8 +45,8 @@
           "peso": 7
         }
       ],
-      "x": 545.1660373644534,
-      "y": 538.28255949404
+      "x": 326.1660373644534,
+      "y": 412.78255949403996
     },
     {
       "id": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
@@ -101,8 +101,8 @@
           "peso": 8
         }
       ],
-      "x": 397.00845523568233,
-      "y": 328.50083223799464
+      "x": 178.00845523568233,
+      "y": 203.00083223799462
     },
     {
       "id": "a12efee9-4527-40ab-b280-24411352e22a",
@@ -161,8 +161,8 @@
           "peso": 8
         }
       ],
-      "x": 592,
-      "y": 574.5255888325765
+      "x": 373.00000000000006,
+      "y": 449.02558883257655
     },
     {
       "id": "2e75b310-e2c0-42ad-938f-a03b9577e080",
@@ -209,8 +209,8 @@
           "peso": 8
         }
       ],
-      "x": 646.8043654350507,
-      "y": 596.9634755655828
+      "x": 427.8043654350507,
+      "y": 471.4634755655828
     },
     {
       "id": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
@@ -255,8 +255,8 @@
           "peso": 7
         }
       ],
-      "x": 794.6746142846412,
-      "y": 475.16696697375085
+      "x": 575.6746142846412,
+      "y": 349.66696697375085
     },
     {
       "id": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
@@ -307,8 +307,8 @@
           "peso": 8
         }
       ],
-      "x": 767,
-      "y": 496.583302491977
+      "x": 548,
+      "y": 371.083302491977
     },
     {
       "id": "0f690c69-08fc-4005-b482-a7974e4b6ea9",
@@ -354,8 +354,8 @@
           "peso": 6
         }
       ],
-      "x": 742,
-      "y": 384
+      "x": 523,
+      "y": 258.5
     },
     {
       "id": "de7bb42c-0ab3-4035-875e-70442dbac193",
@@ -363,8 +363,8 @@
       "nome": "Python",
       "finalidade": "Desenvolvimento da biblioteca de análise de estruturas de código.",
       "contexto": "Linguagem principal utilizada no projeto dir.",
-      "x": 702,
-      "y": 804
+      "x": 483,
+      "y": 678.5
     },
     {
       "id": "caef911d-fcb1-40ae-8c69-cdc29bfdee7e",
@@ -372,8 +372,8 @@
       "nome": "inspect",
       "finalidade": "Realizar introspecção de objetos, módulos, classes e funções Python.",
       "contexto": "Utilizado e estudado durante o desenvolvimento do projeto dir.",
-      "x": 632.8702720820918,
-      "y": 798.2717474291435
+      "x": 413.8702720820918,
+      "y": 672.7717474291435
     },
     {
       "id": "b05f9115-5192-456a-b3cc-4137ee93b494",
@@ -432,8 +432,8 @@
           "peso": 8
         }
       ],
-      "x": 397.0084552356824,
-      "y": 439.4991677620056
+      "x": 178.0084552356824,
+      "y": 313.9991677620056
     },
     {
       "id": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
@@ -486,50 +486,50 @@
           "peso": 8
         }
       ],
-      "x": 734.6156022429246,
-      "y": 509.84205374329895
+      "x": 515.6156022429246,
+      "y": 384.34205374329895
     },
     {
       "id": "8e719e06-471e-4ba6-b47d-ecd19fd926d3",
       "tipo": "tag",
       "nome": "Programação Orientada a Objetos",
-      "x": 702,
-      "y": 924
+      "x": 483.00000000000006,
+      "y": 798.5
     },
     {
       "id": "f30ad657-36b1-45fa-be42-efbb4bacdc7a",
       "tipo": "tag",
       "nome": "Estruturas de Dados",
-      "x": 495.3509465228516,
-      "y": 882.8949475560948
+      "x": 276.3509465228516,
+      "y": 757.3949475560948
     },
     {
       "id": "725af57d-b670-4ff1-8717-d6c86a7eaf41",
       "tipo": "tag",
       "nome": "APIs",
-      "x": 320.1623381592644,
-      "y": 765.8376618407357
+      "x": 101.16233815926438,
+      "y": 640.3376618407357
     },
     {
       "id": "23d37e70-5f7f-4e08-b581-a401b6ca2842",
       "tipo": "tag",
       "nome": "Automação",
-      "x": 203.10505244390527,
-      "y": 590.6490534771488
+      "x": -15.894947556094735,
+      "y": 465.14905347714875
     },
     {
       "id": "f37d7658-7640-4e41-9a1b-4f888464b520",
       "tipo": "tag",
       "nome": "Desenvolvimento Web",
-      "x": 162,
-      "y": 384.00000000000006
+      "x": -57,
+      "y": 258.50000000000006
     },
     {
       "id": "5fc31254-74f7-4ead-98db-fb3a812668e6",
       "tipo": "tag",
       "nome": "Análise de Dados",
-      "x": 203.1050524439051,
-      "y": 177.3509465228517
+      "x": -15.894947556094905,
+      "y": 51.8509465228517
     },
     {
       "id": "081a361c-2cdf-431b-a791-d1125e4bb9cc",
@@ -537,8 +537,8 @@
       "nome": "FastAPI",
       "finalidade": "",
       "contexto": "",
-      "x": 565.6262229340329,
-      "y": 781.2432415142666
+      "x": 346.62622293403285,
+      "y": 655.7432415142666
     },
     {
       "id": "3b493003-4f06-44d4-ab49-ced531386fd0",
@@ -546,8 +546,8 @@
       "nome": "Pydantic",
       "finalidade": "",
       "contexto": "",
-      "x": 502.10209492442914,
-      "y": 753.3789755067254
+      "x": 283.1020949244289,
+      "y": 627.8789755067253
     },
     {
       "id": "61d58e94-a375-4f7e-9987-38613f99fd73",
@@ -555,8 +555,8 @@
       "nome": "yt-dlp",
       "finalidade": "",
       "contexto": "",
-      "x": 444.0306606703395,
-      "y": 715.4390139464854
+      "x": 225.0306606703395,
+      "y": 589.9390139464854
     },
     {
       "id": "207884bb-829c-443b-bd77-0cabd5d50459",
@@ -564,8 +564,8 @@
       "nome": "google-api",
       "finalidade": "",
       "contexto": "",
-      "x": 392.99595751728475,
-      "y": 668.4582600828112
+      "x": 173.99595751728475,
+      "y": 542.9582600828112
     },
     {
       "id": "6c60a8b9-8c86-4737-ae5e-ef04351c2c77",
@@ -573,8 +573,8 @@
       "nome": "FFmpeg",
       "finalidade": "",
       "contexto": "",
-      "x": 350.390079129738,
-      "y": 613.7182264114192
+      "x": 131.390079129738,
+      "y": 488.21822641141927
     },
     {
       "id": "6e7c0940-3b10-49c1-af2c-2e0b2b012b65",
@@ -582,8 +582,8 @@
       "nome": "Docker",
       "finalidade": "",
       "contexto": "",
-      "x": 317.37520280487587,
-      "y": 552.7120783542472
+      "x": 98.37520280487587,
+      "y": 427.2120783542472
     },
     {
       "id": "aeb8844e-4f28-46f6-b53d-c2aaa92651da",
@@ -591,8 +591,8 @@
       "nome": "Remix",
       "finalidade": "",
       "contexto": "",
-      "x": 294.85188830548117,
-      "y": 487.1039045991356
+      "x": 75.85188830548117,
+      "y": 361.6039045991356
     },
     {
       "id": "4e54dc64-4ba5-443a-92ff-1a3a06de127f",
@@ -600,8 +600,8 @@
       "nome": "Jellyfin API",
       "finalidade": "",
       "contexto": "",
-      "x": 283.4345129371987,
-      "y": 418.68332509837956
+      "x": 64.43451293719869,
+      "y": 293.18332509837956
     },
     {
       "id": "9e24405e-17e6-4b78-a81c-1fa81ec7964a",
@@ -609,8 +609,8 @@
       "nome": "Streamlit",
       "finalidade": "",
       "contexto": "",
-      "x": 283.4345129371987,
-      "y": 349.3166749016203
+      "x": 64.43451293719869,
+      "y": 223.81667490162047
     },
     {
       "id": "004a876f-0f9e-434c-923e-b364d5db5a40",
@@ -618,8 +618,8 @@
       "nome": "Dash",
       "finalidade": "",
       "contexto": "",
-      "x": 294.8518883054812,
-      "y": 280.89609540086417
+      "x": 75.85188830548122,
+      "y": 155.3960954008642
     },
     {
       "id": "8fa68f54-4a5a-442b-a15c-0220ddda1196",
@@ -627,8 +627,8 @@
       "nome": "JavaScript",
       "finalidade": "",
       "contexto": "",
-      "x": 317.3752028048759,
-      "y": 215.28792164575268
+      "x": 98.37520280487593,
+      "y": 89.78792164575268
     },
     {
       "id": "7a3d5435-0594-4144-aae2-86565ca06955",
@@ -636,8 +636,8 @@
       "nome": "Brapi",
       "finalidade": "",
       "contexto": "",
-      "x": 350.390079129738,
-      "y": 154.28177358858073
+      "x": 131.390079129738,
+      "y": 28.781773588580734
     },
     {
       "id": "64df05ee-6315-4dfc-9c21-b48696abac47",
@@ -645,8 +645,8 @@
       "nome": "yfinance",
       "finalidade": "",
       "contexto": "",
-      "x": 392.9959575172848,
-      "y": 99.54173991718858
+      "x": 173.9959575172848,
+      "y": -25.95826008281142
     },
     {
       "id": "4d438d97-db86-4aff-b99f-91778994317f",
@@ -654,8 +654,8 @@
       "nome": "Pandas",
       "finalidade": "",
       "contexto": "",
-      "x": 444.0306606703395,
-      "y": 52.56098605351468
+      "x": 225.0306606703395,
+      "y": -72.93901394648532
     },
     {
       "id": "9a6da5d3-865f-4bf4-8f79-1cbc1db2d725",
@@ -663,8 +663,8 @@
       "nome": "Plotly.js",
       "finalidade": "",
       "contexto": "",
-      "x": 502.10209492442914,
-      "y": 14.621024493274604
+      "x": 283.10209492442914,
+      "y": -110.8789755067254
     },
     {
       "id": "dfacad7b-807d-4840-aa88-fba1704b3919",
@@ -672,8 +672,8 @@
       "nome": "API do YouTube",
       "finalidade": "",
       "contexto": "",
-      "x": 565.6262229340331,
-      "y": -13.243241514266629
+      "x": 346.6262229340331,
+      "y": -138.74324151426663
     },
     {
       "id": "da1f58e2-1115-46b9-82ad-0918e4afa8e7",
@@ -681,8 +681,8 @@
       "nome": "Regex",
       "finalidade": "",
       "contexto": "",
-      "x": 632.8702720820918,
-      "y": -30.27174742914343
+      "x": 413.8702720820919,
+      "y": -155.77174742914343
     },
     {
       "id": "107f7267-5e79-422e-bc11-61ff52a15fb5",
@@ -690,8 +690,8 @@
       "nome": "Excel",
       "finalidade": "",
       "contexto": "",
-      "x": 701.9999999999999,
-      "y": -36
+      "x": 482.99999999999994,
+      "y": -161.5
     },
     {
       "id": "a25a522a-4590-4a44-b083-5e1e9e9281aa",
@@ -699,8 +699,8 @@
       "nome": "Tableau",
       "finalidade": "",
       "contexto": "",
-      "x": 771.1297279179082,
-      "y": -30.271747429143375
+      "x": 552.1297279179082,
+      "y": -155.77174742914337
     },
     {
       "id": "bc9869af-0e82-4ce4-acf5-3df8568343d1",
@@ -708,8 +708,8 @@
       "nome": "LlamaIndex",
       "finalidade": "",
       "contexto": "",
-      "x": 838.3737770659673,
-      "y": -13.243241514266515
+      "x": 619.3737770659673,
+      "y": -138.74324151426651
     },
     {
       "id": "15c7fcf6-c7c4-4563-9c75-16955432d4e4",
@@ -717,8 +717,8 @@
       "nome": "LLM",
       "finalidade": "",
       "contexto": "",
-      "x": 901.897905075571,
-      "y": 14.62102449327466
+      "x": 682.897905075571,
+      "y": -110.87897550672534
     },
     {
       "id": "c0515178-bc8f-471d-aeae-9f9919621452",
@@ -726,8 +726,8 @@
       "nome": "openpyxl",
       "finalidade": "",
       "contexto": "",
-      "x": 959.9693393296604,
-      "y": 52.560986053514625
+      "x": 740.9693393296604,
+      "y": -72.93901394648537
     },
     {
       "id": "07e9ce54-d712-4859-b157-265820adfe82",
@@ -735,8 +735,8 @@
       "nome": "hash",
       "finalidade": "",
       "contexto": "",
-      "x": 1011.0040424827154,
-      "y": 99.5417399171888
+      "x": 792.0040424827154,
+      "y": -25.958260082811194
     },
     {
       "id": "ed4ffa2b-0de1-4820-aa07-2ff9165a24cd",
@@ -744,8 +744,8 @@
       "nome": "tqdm",
       "finalidade": "",
       "contexto": "",
-      "x": 1053.6099208702622,
-      "y": 154.28177358858102
+      "x": 834.6099208702622,
+      "y": 28.781773588581018
     },
     {
       "id": "2583eb58-9bc6-4576-bf0d-88de16adc7ff",
@@ -753,36 +753,36 @@
       "nome": "logging",
       "finalidade": "",
       "contexto": "",
-      "x": 1086.6247971951243,
-      "y": 215.28792164575302
+      "x": 867.6247971951242,
+      "y": 89.78792164575302
     },
     {
       "id": "5ada4923-e0c8-4c9c-9332-2bc017520bec",
       "tipo": "tag",
       "nome": "RAG",
-      "x": 320.16233815926404,
-      "y": 2.1623381592646638
+      "x": 101.16233815926404,
+      "y": -123.33766184073534
     },
     {
       "id": "a8f7cb34-bd11-47a4-ae4a-12288c50722f",
       "tipo": "tag",
       "nome": "Processamento de Documentos",
-      "x": 495.35094652285113,
-      "y": -114.89494755609468
+      "x": 276.35094652285125,
+      "y": -240.39494755609473
     },
     {
       "id": "4add80a6-cbaa-4fdf-84b3-8eece512cf47",
       "tipo": "tag",
       "nome": "ETL",
-      "x": 701.9999999999998,
-      "y": -156
+      "x": 482.9999999999999,
+      "y": -281.5
     },
     {
       "id": "de26ff75-9f33-4692-ab8c-649f15df9ad4",
       "tipo": "tag",
       "nome": "Anonimização de Dados",
-      "x": 908.6490534771482,
-      "y": -114.89494755609496
+      "x": 689.6490534771482,
+      "y": -240.39494755609496
     },
     {
       "id": "6496789f-75b8-4e20-8737-266f392cdd99",
@@ -790,8 +790,8 @@
       "nome": "Tkinter",
       "finalidade": "",
       "contexto": "",
-      "x": 1109.1481116945188,
-      "y": 280.89609540086434
+      "x": 890.1481116945188,
+      "y": 155.39609540086434
     },
     {
       "id": "af02e87d-6251-44da-9afa-7fd0a3a6d430",
@@ -799,8 +799,8 @@
       "nome": "Supabase",
       "finalidade": "",
       "contexto": "",
-      "x": 1120.5654870628014,
-      "y": 349.31667490162056
+      "x": 901.5654870628014,
+      "y": 223.81667490162062
     },
     {
       "id": "5e7a7022-bd13-478e-a890-2564d7b45dba",
@@ -808,8 +808,8 @@
       "nome": "SQL",
       "finalidade": "",
       "contexto": "",
-      "x": 1120.5654870628014,
-      "y": 418.68332509837995
+      "x": 901.5654870628014,
+      "y": 293.18332509837995
     },
     {
       "id": "2ce28403-e07b-4f9d-94c6-9caf5b615545",
@@ -817,8 +817,8 @@
       "nome": "MSI Package",
       "finalidade": "",
       "contexto": "",
-      "x": 1109.1481116945188,
-      "y": 487.10390459913583
+      "x": 890.1481116945188,
+      "y": 361.60390459913583
     },
     {
       "id": "8d9dd0d2-576e-456b-be10-6fa9be6bebcc",
@@ -826,8 +826,8 @@
       "nome": "PG8000",
       "finalidade": "",
       "contexto": "",
-      "x": 1086.624797195124,
-      "y": 552.7120783542472
+      "x": 867.6247971951241,
+      "y": 427.2120783542472
     },
     {
       "id": "04581e00-c559-483b-9518-ae7be970d99a",
@@ -835,8 +835,8 @@
       "nome": "API Telegram",
       "finalidade": "",
       "contexto": "",
-      "x": 1053.609920870262,
-      "y": 613.7182264114194
+      "x": 834.6099208702619,
+      "y": 488.2182264114195
     },
     {
       "id": "2bfb3ee6-b050-4d3f-961e-1f041110aad4",
@@ -844,8 +844,8 @@
       "nome": "AssemblyAI",
       "finalidade": "",
       "contexto": "",
-      "x": 1011.004042482715,
-      "y": 668.4582600828114
+      "x": 792.004042482715,
+      "y": 542.9582600828114
     },
     {
       "id": "f99a3b5b-3834-4f2f-b4d9-5f8118c06e23",
@@ -853,8 +853,8 @@
       "nome": "MariaDB",
       "finalidade": "",
       "contexto": "",
-      "x": 959.9693393296602,
-      "y": 715.4390139464855
+      "x": 740.9693393296602,
+      "y": 589.9390139464855
     },
     {
       "id": "242b780e-3629-4f8f-8b1d-e0354e79c513",
@@ -862,65 +862,528 @@
       "nome": "Raspberry Pi",
       "finalidade": "",
       "contexto": "",
-      "x": 901.8979050755709,
-      "y": 753.3789755067254
+      "x": 682.8979050755709,
+      "y": 627.8789755067254
     },
     {
       "id": "f3204252-a5c6-4eed-8c6f-bf47b7d45dfb",
       "tipo": "tag",
       "nome": "Banco de Dados",
-      "x": 1083.8376618407353,
-      "y": 2.162338159263925
+      "x": 864.8376618407353,
+      "y": -123.33766184073608
     },
     {
       "id": "53357415-26e8-48fa-a7f7-def0c1fb0413",
       "tipo": "tag",
       "nome": "Aplicações Desktop",
-      "x": 1200.8949475560948,
-      "y": 177.35094652285116
+      "x": 981.8949475560947,
+      "y": 51.85094652285116
     },
     {
       "id": "09602237-b58f-4981-88c9-3ad4bd0bb8fe",
       "tipo": "tag",
       "nome": "Chatbot",
-      "x": 1242,
-      "y": 383.9999999999994
+      "x": 1023,
+      "y": 258.4999999999994
     },
     {
       "id": "dabc15cf-7312-49d5-a5c0-3fada227c504",
       "tipo": "tag",
       "nome": "LLM",
-      "x": 1200.8949475560948,
-      "y": 590.6490534771482
+      "x": 981.8949475560951,
+      "y": 465.14905347714813
     },
     {
       "tipo": "ferramenta",
       "nome": "API AssemblyAI",
       "id": "d827c152-ba8d-4a75-abe0-3af06b1d4c58",
-      "x": 838.3737770659668,
-      "y": 781.2432415142666
+      "x": 619.3737770659668,
+      "y": 655.7432415142666
     },
     {
       "tipo": "ferramenta",
       "nome": "Flask",
       "id": "e7b1dd33-0566-4246-950e-58fd813a5a27",
-      "x": 771.1297279179078,
-      "y": 798.2717474291435
+      "x": 552.1297279179078,
+      "y": 672.7717474291435
     },
     {
       "tipo": "tag",
       "nome": "Python",
       "id": "6ff43be3-dce2-434c-a62a-d6ea2b6bc40f",
-      "x": 1083.8376618407362,
-      "y": 765.8376618407352
+      "x": 864.8376618407362,
+      "y": 640.3376618407352
     },
     {
       "tipo": "tag",
       "nome": "Processamento de Texto",
       "id": "d85e9d6d-40d9-4ef0-bb6a-5d5caa480fd2",
-      "x": 908.649053477149,
-      "y": 882.8949475560946
+      "x": 689.649053477149,
+      "y": 757.3949475560946
     }
   ],
-  "edges": []
+  "edges": [
+    {
+      "id": "d8d9660e-bfb7-4d1e-a394-d311f345ae04",
+      "source": "393e7cb0-95e9-454f-9edb-9ece69055b1a",
+      "target": "d827c152-ba8d-4a75-abe0-3af06b1d4c58",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "e3fd6aac-1047-4787-b66c-b6db35a9c023",
+      "source": "393e7cb0-95e9-454f-9edb-9ece69055b1a",
+      "target": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "c1edbd9c-2e38-4829-8202-3d43a42a3dbf",
+      "source": "393e7cb0-95e9-454f-9edb-9ece69055b1a",
+      "target": "e7b1dd33-0566-4246-950e-58fd813a5a27",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "72da7bc7-7b01-4ce4-8b51-59e020c5c21b",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "42ec6392-b2dc-431b-b69c-d083e820cd28",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "6496789f-75b8-4e20-8737-266f392cdd99",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "d807f174-2475-4d5f-850a-0074ba1c6e52",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "af02e87d-6251-44da-9afa-7fd0a3a6d430",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "78181d6b-445a-44ce-b160-fcfde766b5e6",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "5e7a7022-bd13-478e-a890-2564d7b45dba",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "9e6ba813-a4f1-429e-a900-a8cc94a8ec56",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "2ce28403-e07b-4f9d-94c6-9caf5b615545",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "1f191c26-093f-4b6a-8fbf-65b62e519ecd",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "8d9dd0d2-576e-456b-be10-6fa9be6bebcc",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "60fe978c-79dd-4050-9396-cd046f18664f",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "22ee4d84-78e1-4af3-b825-18f38b96e22f",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "04581e00-c559-483b-9518-ae7be970d99a",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "59d214fd-aec6-4e79-963f-ddc011a87238",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "15c7fcf6-c7c4-4563-9c75-16955432d4e4",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "b7dcf95f-41a3-4a1a-92d2-c3f8639cc52a",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "2bfb3ee6-b050-4d3f-961e-1f041110aad4",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "85f2a60f-fcb2-48db-8d63-01ed9f8ca828",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "f99a3b5b-3834-4f2f-b4d9-5f8118c06e23",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "9de2e0a4-f92c-4227-8b88-5806431da9cf",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "5e7a7022-bd13-478e-a890-2564d7b45dba",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "57a5e9f9-8b8e-4137-9780-a02867ef4806",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "242b780e-3629-4f8f-8b1d-e0354e79c513",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "2b390946-07b2-47df-9c20-9252ff0a5dc6",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "4d438d97-db86-4aff-b99f-91778994317f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "d277de92-4ebb-4c7c-85d0-11349d0b4bc1",
+      "source": "2e75b310-e2c0-42ad-938f-a03b9577e080",
+      "target": "9e24405e-17e6-4b78-a81c-1fa81ec7964a",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "52e5b8fc-267e-493f-a89a-e67d5fd3fab0",
+      "source": "2e75b310-e2c0-42ad-938f-a03b9577e080",
+      "target": "bc9869af-0e82-4ce4-acf5-3df8568343d1",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "16e5170a-c05c-40b9-8862-6a92db53cbcf",
+      "source": "2e75b310-e2c0-42ad-938f-a03b9577e080",
+      "target": "15c7fcf6-c7c4-4563-9c75-16955432d4e4",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "b36dd81d-551d-4f9a-b85d-48910bd248d7",
+      "source": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "target": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "a2ae2b1d-979f-4079-addd-4317f15456cf",
+      "source": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "target": "4d438d97-db86-4aff-b99f-91778994317f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "1e34989f-10e0-4f64-9a5f-0d884717b05b",
+      "source": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "target": "c0515178-bc8f-471d-aeae-9f9919621452",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "945f8776-a787-4ab3-9cbb-6e3eb3697a10",
+      "source": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "target": "07e9ce54-d712-4859-b157-265820adfe82",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "68d16f69-8697-4760-a404-98d48ec78a55",
+      "source": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "target": "ed4ffa2b-0de1-4820-aa07-2ff9165a24cd",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "a0805727-e66e-458f-8388-1fe4f33d2131",
+      "source": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "target": "2583eb58-9bc6-4576-bf0d-88de16adc7ff",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "816fc290-8b2c-42c4-86e0-0799e62b34e1",
+      "source": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "target": "dfacad7b-807d-4840-aa88-fba1704b3919",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "0513727e-5f6c-40e8-bf93-aaeae360789a",
+      "source": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "target": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "db3f9453-e608-406d-a8e4-f3f405c164bd",
+      "source": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "target": "4d438d97-db86-4aff-b99f-91778994317f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "7a73a75c-5d17-4322-88e7-77d55d572429",
+      "source": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "target": "da1f58e2-1115-46b9-82ad-0918e4afa8e7",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "be7e4477-1f4e-407c-837b-9bb7d7de5b37",
+      "source": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "target": "107f7267-5e79-422e-bc11-61ff52a15fb5",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "2d4ef147-7aba-4034-b899-14281ee112e4",
+      "source": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "target": "a25a522a-4590-4a44-b083-5e1e9e9281aa",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "4e3fbf3d-cfee-46ef-8329-91f147e64cf3",
+      "source": "0f690c69-08fc-4005-b482-a7974e4b6ea9",
+      "target": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "ab98c64a-8386-4a19-8262-e1b2ac9b08a3",
+      "source": "0f690c69-08fc-4005-b482-a7974e4b6ea9",
+      "target": "caef911d-fcb1-40ae-8c69-cdc29bfdee7e",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "0fac6aa6-8f98-4773-8831-213ccd9fc0d7",
+      "source": "0f690c69-08fc-4005-b482-a7974e4b6ea9",
+      "target": "4d438d97-db86-4aff-b99f-91778994317f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "732e776b-bf28-43ea-a328-b1dd77f60386",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "a7bc4a8b-94c4-489d-b27c-5b800771688a",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "081a361c-2cdf-431b-a791-d1125e4bb9cc",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "31345044-af2e-40db-a326-d1024cbd047a",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "3b493003-4f06-44d4-ab49-ced531386fd0",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "19d8660d-19f6-406d-90df-00704048b0ea",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "61d58e94-a375-4f7e-9987-38613f99fd73",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "834e38fa-dae5-4684-8cd1-18c6bf5dd332",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "207884bb-829c-443b-bd77-0cabd5d50459",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "2c06598d-ca4a-4c14-86c8-07da5e52acab",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "6c60a8b9-8c86-4737-ae5e-ef04351c2c77",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "27008199-4e02-4eb6-b69e-17770ba2a83d",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "6e7c0940-3b10-49c1-af2c-2e0b2b012b65",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "06542dd2-d54d-481f-a68e-4c41fa3eda31",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "aeb8844e-4f28-46f6-b53d-c2aaa92651da",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "583e93b7-faf3-4446-b05d-bb73ba9318c6",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "4e54dc64-4ba5-443a-92ff-1a3a06de127f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "095593b2-f558-4e31-9d79-1531cd1c89eb",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "de7bb42c-0ab3-4035-875e-70442dbac193",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "1e48c911-7eaf-4e2c-a27f-d667361855cb",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "9e24405e-17e6-4b78-a81c-1fa81ec7964a",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "31678dfa-d575-4962-a850-1ccfa8c34d05",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "004a876f-0f9e-434c-923e-b364d5db5a40",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "ac502f3c-f796-44a2-abe2-378127553493",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "081a361c-2cdf-431b-a791-d1125e4bb9cc",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "400ae454-fb4c-43e1-878d-497ba597e90a",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "3b493003-4f06-44d4-ab49-ced531386fd0",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "38e66c97-f2ec-4e4d-8136-a7edb91671e2",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "8fa68f54-4a5a-442b-a15c-0220ddda1196",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "6befe611-24fc-4e7b-82f5-8475ca9d8dd4",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "7a3d5435-0594-4144-aae2-86565ca06955",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "1f022ddc-b0a9-4584-8cfa-deb5f2acfcff",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "64df05ee-6315-4dfc-9c21-b48696abac47",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "991e3cdf-e30f-4a20-bd79-3b455a5efb43",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "4d438d97-db86-4aff-b99f-91778994317f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "a4271199-e0ec-40db-8297-bce450141a99",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "9a6da5d3-865f-4bf4-8f79-1cbc1db2d725",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "a7452f39-3b87-4462-bc53-888a6d1d52ff",
+      "source": "393e7cb0-95e9-454f-9edb-9ece69055b1a",
+      "target": "725af57d-b670-4ff1-8717-d6c86a7eaf41",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "9dd7ab8b-544e-4671-b063-bf4cde20a22e",
+      "source": "393e7cb0-95e9-454f-9edb-9ece69055b1a",
+      "target": "6ff43be3-dce2-434c-a62a-d6ea2b6bc40f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "cd54c168-a976-4954-9bb0-1a3c092569e5",
+      "source": "393e7cb0-95e9-454f-9edb-9ece69055b1a",
+      "target": "d85e9d6d-40d9-4ef0-bb6a-5d5caa480fd2",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "8299551c-fff1-471c-989d-a145ee2651d3",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "6ff43be3-dce2-434c-a62a-d6ea2b6bc40f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "197944fc-356e-498c-ba29-f7b7c03a30c5",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "f3204252-a5c6-4eed-8c6f-bf47b7d45dfb",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "2dfb1b0b-63ce-4adc-b8c3-6868aa8dc013",
+      "source": "e4fb28ed-ceac-427e-be3e-f1685771bd6a",
+      "target": "53357415-26e8-48fa-a7f7-def0c1fb0413",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "9e6bfbdf-9cfe-46ed-83ca-752672b9cb9f",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "09602237-b58f-4981-88c9-3ad4bd0bb8fe",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "eaafa323-044f-4063-89da-9b19f2625330",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "f3204252-a5c6-4eed-8c6f-bf47b7d45dfb",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "91469856-d7a3-4c90-9717-081c188352da",
+      "source": "a12efee9-4527-40ab-b280-24411352e22a",
+      "target": "dabc15cf-7312-49d5-a5c0-3fada227c504",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "e5bf63dc-26da-4663-a92d-a5493cf203be",
+      "source": "2e75b310-e2c0-42ad-938f-a03b9577e080",
+      "target": "5ada4923-e0c8-4c9c-9332-2bc017520bec",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "66b2b7b7-cbe4-418e-84ab-80ed82872a7c",
+      "source": "2e75b310-e2c0-42ad-938f-a03b9577e080",
+      "target": "dabc15cf-7312-49d5-a5c0-3fada227c504",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "b126d28a-c129-4dca-9e60-6b02f478ee53",
+      "source": "2e75b310-e2c0-42ad-938f-a03b9577e080",
+      "target": "a8f7cb34-bd11-47a4-ae4a-12288c50722f",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "a2a92413-8879-415e-9887-3724cec8038b",
+      "source": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "target": "4add80a6-cbaa-4fdf-84b3-8eece512cf47",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "1c56f6d2-3768-48f9-8e5b-a1b9e894df8f",
+      "source": "ab187471-b14f-4a79-a59f-4bab05aa9a1c",
+      "target": "de26ff75-9f33-4692-ab8c-649f15df9ad4",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "d3d412f4-4d62-4912-ae0e-f2c4a269e033",
+      "source": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "target": "5fc31254-74f7-4ead-98db-fb3a812668e6",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "6c5cbd3f-d797-470e-8c74-aad2e55a037c",
+      "source": "ae2df4fa-cc9a-498f-9147-3f6e79f1f3be",
+      "target": "725af57d-b670-4ff1-8717-d6c86a7eaf41",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "704c23e1-3f8c-48c4-b361-a5ae585e24fa",
+      "source": "0f690c69-08fc-4005-b482-a7974e4b6ea9",
+      "target": "8e719e06-471e-4ba6-b47d-ecd19fd926d3",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "b62ff434-3b80-467d-94da-31da2f916b8c",
+      "source": "0f690c69-08fc-4005-b482-a7974e4b6ea9",
+      "target": "f30ad657-36b1-45fa-be42-efbb4bacdc7a",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "37eb974c-39bd-4859-933f-d3cb2b547e8e",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "725af57d-b670-4ff1-8717-d6c86a7eaf41",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "4e0b3281-f9ee-49e0-8f23-b535b13232b3",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "23d37e70-5f7f-4e08-b581-a401b6ca2842",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "1a905a45-3b00-4220-a3a6-5cc4dd4a9d72",
+      "source": "b05f9115-5192-456a-b3cc-4137ee93b494",
+      "target": "f37d7658-7640-4e41-9a1b-4f888464b520",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "9a39b9c1-482b-4e51-9147-52c597d6bf8c",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "5fc31254-74f7-4ead-98db-fb3a812668e6",
+      "tipo": "relacionado"
+    },
+    {
+      "id": "18f8a5b6-9c28-462f-8a07-2bf7c254ba3c",
+      "source": "ce8691ca-6c97-4d86-9b8c-fd4e87a1d89d",
+      "target": "725af57d-b670-4ff1-8717-d6c86a7eaf41",
+      "tipo": "relacionado"
+    }
+  ]
 }

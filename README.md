@@ -1,4 +1,3 @@
-```markdown
 # Tech Project Graph
 
 **Visualize e gerencie a complexidade dos seus projetos técnicos como um grafo interativo.**
@@ -25,12 +24,13 @@ Ideal para engenheiros, pesquisadores e tech leads que desejam **documentar, exp
 - **Arraste de nós** com salvamento automático da posição
 
 ### Gerenciamento de Dados
-- **3 tipos de nós**:
+- **3 tipos de nós**:  
   | Tipo | Cor | Forma | Descrição |
   |------|-----|-------|-----------|
   | Projeto | Laranja `#FF6B35` | Retângulo arredondado | Projetos com datas, tarefas, ferramentas, tags, etc. |
   | Ferramenta | Azul ciano `#00D9FF` | Elipse | Tecnologias e ferramentas utilizadas |
-  | Tag | Verde `#10B981` | Diamante | Tags de conhecimento, tarefas ou resultados |
+  | Tag | Verde `#10B981` | Diamante | Tags de conhecimento, tarefas ou resultados |  
+  
 
 - **Criação e edição de nós** via painel lateral com formulário completo
 - **Criação de relações** (arestas) entre quaisquer nós
@@ -304,4 +304,4 @@ Este projeto é privado.
 - [ ] Importação de arestas no JSON de entrada
 - [ ] Temas customizáveis
 - [ ] Filtros avançados por tipo, complexidade, período
-```
+

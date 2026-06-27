@@ -320,6 +320,20 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
         };
         const src = nodes.find((n) => n.id === edge.source);
         const tgt = nodes.find((n) => n.id === edge.target);
+
+        // Determina o tipo de relação para estilização
+        if (
+          (src?.tipo === 'projeto' && tgt?.tipo === 'ferramenta') ||
+          (src?.tipo === 'ferramenta' && tgt?.tipo === 'projeto')
+        ) {
+          data.tipo_relacao = 'ferramenta';
+        } else if (
+          (src?.tipo === 'projeto' && tgt?.tipo === 'tag') ||
+          (src?.tipo === 'tag' && tgt?.tipo === 'projeto')
+        ) {
+          data.tipo_relacao = 'tag';
+        }
+
         if (src?.tipo === 'projeto' && tgt?.tipo === 'tag') {
           const tagEntry = (src as ProjetoNode).tags?.find(
             (t) => t.nome.toLowerCase() === tgt.nome.toLowerCase()
@@ -328,7 +342,8 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
             data.peso = tagEntry.peso;
           }
         }
-        return { data };
+
+        return { data, classes: 'edge-hidden' };
       }),
 
     ],
@@ -412,18 +427,42 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
     //     'border-width': 3,
     //   },
     // },
+    // Aresta padrão (outros tipos de relação)
     {
       selector: 'edge',
       style: {
         'line-color': '#D1D5DB',
-        'width': (ele: any) => {
-                  const peso = ele.data('peso');
-                  return peso ? Math.max(0.5, peso * 1.5) : 1.5;
-                },
-        'opacity': 0.6,
+        'width': 1.5,
+        'opacity': 0.5,
         'curve-style': 'straight-triangle',
       },
     },
+    // Aresta projeto ↔ ferramenta (sólida, azul ciano)
+    {
+      selector: 'edge[tipo_relacao="ferramenta"]',
+      style: {
+        'line-color': '#00D9FF',
+        'line-style': 'solid',
+        'width': 2.5,
+        'opacity': 0.8,
+        'curve-style': 'straight-triangle',
+      },
+    },
+    // Aresta projeto ↔ tag (dashed, verde)
+    {
+      selector: 'edge[tipo_relacao="tag"]',
+      style: {
+        'line-color': '#10B981',
+        'line-style': 'dashed',
+        'width': (ele: any) => {
+          const peso = ele.data('peso');
+          return peso ? Math.max(1, peso * 2) : 2;
+        },
+        'opacity': 0.8,
+        'curve-style': 'bezier',
+      },
+    },
+
     {
       selector: '.faded',
       style: {
@@ -431,6 +470,13 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
         'text-opacity': 0,
       },
     },
+    {
+      selector: '.edge-hidden',
+      style: {
+        'opacity': 0,
+      },
+    },
+
 
   ];
 
@@ -469,15 +515,21 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
     // });
 
     // Highlight — conectados em foco, resto esmaecido
+    // Highlight — conectados em foco, resto esmaecido
     cy.on('mouseover', 'node', (evt: any) => {
       const connected = evt.target.closedNeighborhood();
       cy.elements().difference(connected).addClass('faded');
       connected.removeClass('faded');
+      // Exibe as arestas conectadas ao nó sob o mouse
+      connected.edges().removeClass('edge-hidden');
     });
 
     cy.on('mouseout', 'node', () => {
       cy.elements().removeClass('faded');
+      // Oculta todas as arestas novamente
+      cy.edges().addClass('edge-hidden');
     });
+
 
 
 
@@ -566,12 +618,17 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
 
 
   // Realce de busca
+  // Realce de busca
   useEffect(() => {
     if (!cyRef.current) return;
     cyRef.current.elements().removeClass('faded');
 
     const term = searchTerm?.trim();
-    if (!term) return;
+    if (!term) {
+      // Sem busca ativa → esconde todas as arestas
+      cyRef.current.edges().addClass('edge-hidden');
+      return;
+    }
 
     const lower = term.toLowerCase();
     const matched = cyRef.current.nodes().filter((n: any) =>
@@ -582,9 +639,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ onNodeSelect, searchTe
 
     cyRef.current.elements().addClass('faded');
     matched.removeClass('faded');
-    matched.connectedEdges().removeClass('faded');
+    matched.connectedEdges().removeClass('faded').removeClass('edge-hidden');
     matched.neighborhood().removeClass('faded');
   }, [searchTerm]);
+
 
 
   // Reexecuta o layout cola quando novos nós são adicionados

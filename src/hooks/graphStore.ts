@@ -145,7 +145,8 @@ export const useGraphStore = create<GraphStore>((set, get) => ({
     const state = get();
     return {
       nodes: state.nodes,
-      edges: [] as GraphEdge[],
+      //edges: [] as GraphEdge[],
+      edges: state.edges,
     };
   },
 
